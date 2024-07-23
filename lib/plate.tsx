@@ -356,7 +356,7 @@ export const initialValue = [
 ]
 
 import './styles/globals.css'
-import type { ComponentProps, PropsWithChildren } from 'react'
+import type { ComponentProps, PropsWithChildren, ReactNode } from 'react'
 
 import {
   type ContemberContextType,
@@ -368,8 +368,11 @@ export type PlateEditorProps = PropsWithChildren<
 > & {
   hideEverythingForReadOnly?: boolean
 } & ContemberContextType & {
-    additionalToolbarButtons?: React.ReactNode
+    additionalToolbarButtons?: ReactNode
   }
+
+export type PlateEditorValue = PlateEditorProps['value']
+
 export const PlateEditor = (props: PlateEditorProps) => {
   return (
     <ContemberProvider isContember={props.isContember}>
