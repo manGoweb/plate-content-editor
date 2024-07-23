@@ -377,7 +377,7 @@ export const PlateEditor = (props: PlateEditorProps) => {
                   <FixedToolbarButtons />
                 </FixedToolbar>
 
-                <Editor />
+                <Editor className='my-4' />
 
                 <FloatingToolbar>
                   <FloatingToolbarButtons />
