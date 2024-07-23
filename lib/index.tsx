@@ -358,39 +358,46 @@ export const initialValue = [
 import './styles/globals.css'
 import type { ComponentProps, PropsWithChildren } from 'react'
 
+import {
+  type ContemberContextType,
+  ContemberProvider,
+} from './contember/contember-context'
+
 export type PlateEditorProps = PropsWithChildren<
   Omit<ComponentProps<typeof Plate>, 'children'>
 > & {
   hideEverythingForReadOnly?: boolean
-}
+} & ContemberContextType
 export const PlateEditor = (props: PlateEditorProps) => {
   return (
-    <DndProvider backend={HTML5Backend}>
-      <TooltipProvider>
-        <CommentsProvider users={{}} myUserId="1">
-          <Plate plugins={props.plugins ?? plugins} {...props}>
-            {props.hideEverythingForReadOnly && props.readOnly ? (
-              <Editor />
-            ) : (
-              <>
-                <FixedToolbar>
-                  <FixedToolbarButtons />
-                </FixedToolbar>
+    <ContemberProvider isContember={props.isContember}>
+      <DndProvider backend={HTML5Backend}>
+        <TooltipProvider>
+          <CommentsProvider users={{}} myUserId="1">
+            <Plate plugins={props.plugins ?? plugins} {...props}>
+              {props.hideEverythingForReadOnly && props.readOnly ? (
+                <Editor />
+              ) : (
+                <>
+                  <FixedToolbar>
+                    <FixedToolbarButtons />
+                  </FixedToolbar>
 
-                <Editor className='my-4' />
+                  <Editor className="my-4" />
 
-                <FloatingToolbar>
-                  <FloatingToolbarButtons />
-                </FloatingToolbar>
-              </>
-            )}
+                  <FloatingToolbar>
+                    <FloatingToolbarButtons />
+                  </FloatingToolbar>
+                </>
+              )}
 
-            <CommentsPopover />
+              <CommentsPopover />
 
-            {props.children}
-          </Plate>
-        </CommentsProvider>
-      </TooltipProvider>
-    </DndProvider>
+              {props.children}
+            </Plate>
+          </CommentsProvider>
+        </TooltipProvider>
+      </DndProvider>
+    </ContemberProvider>
   )
 }
