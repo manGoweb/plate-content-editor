@@ -17,7 +17,7 @@
       "import": "./dist/plate-contember.js",
       "types": "./dist/plate-contember.d.ts"
     },
-    "./plate.css": "./dist/plate.css"
+    "./plate.css": "./dist/style.css"
   },
   "scripts": {
     "lint": "biome lint --write .",

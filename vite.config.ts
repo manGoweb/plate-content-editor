@@ -13,18 +13,22 @@ export default defineConfig({
     exclude: contemberPackages,
   },
   build: {
+    lib: {
+      entry: {
+        plate: path.resolve(__dirname, 'lib/plate.tsx'),
+        'plate-contember': path.resolve(
+          __dirname,
+          'lib/contember/plate-contember.tsx'
+        ),
+      },
+      formats: ['es'],
+    },
     rollupOptions: {
-      input: [
-        path.resolve(__dirname, 'lib/plate.tsx'),
-        path.resolve(__dirname, 'lib/contember/plate-contember.tsx'),
+      external: [
+        'react', 'react-dom', 'tailwindcss',
+        ...contemberPackages,
       ],
-      external: ['react', 'react-dom', 'tailwindcss', ...contemberPackages],
       output: {
-        format: 'es',
-        dir: 'dist',
-        assetFileNames: '[name][extname]',
-        entryFileNames: '[name].js',
-        preserveModules: false,
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
