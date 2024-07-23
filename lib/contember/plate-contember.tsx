@@ -1,0 +1,104 @@
+import {
+  Component,
+  Field,
+  type SugarableRelativeSingleField,
+  useField,
+} from '@contember/interface'
+import {
+  normalizeInitialValue,
+  replaceNodeChildren,
+  useEditorRef,
+} from '@udecode/plate-common'
+import { useEffect } from 'react'
+
+import { isJsonContent, isJsonObject } from './utils'
+import { PlateEditor, type PlateEditorProps } from '../plate'
+import { ContemberImageToolBarButton } from './contember-image-toolbar-button'
+
+export type PlateEditorForContemberProps = {
+  field: string | SugarableRelativeSingleField
+}
+
+export const PlateEditorForContember = Component<
+  PlateEditorProps & PlateEditorForContemberProps
+>(
+  (props) => {
+    const { field } = props
+
+    const contentField = useField(field)
+
+    const handleEditorOnChange = (value: any) => {
+      const contentJson = isJsonObject(value) ? { children: value } : null
+
+      if (
+        contentJson &&
+        contentField.value &&
+        isJsonContent(contentField.value) &&
+        contentField.value.children === value
+      ) {
+        return
+      }
+
+      contentField.updateValue(contentJson)
+    }
+
+    return (
+      <PlateEditor
+        isContember={true}
+        value={
+          isJsonContent(contentField?.value)
+            ? contentField?.value?.children
+            : undefined
+        }
+        onChange={handleEditorOnChange}
+        normalizeInitialValue
+        additionalToolbarButtons={
+          <>
+            <ContemberImageToolBarButton />
+          </>
+        }
+        {...props}
+      >
+        <PlateContentSync field={field} />
+      </PlateEditor>
+    )
+  },
+  ({ field }) => (
+    <>
+      <Field field={field} />
+    </>
+  ),
+  'PlateEditorForContember'
+)
+
+type PlateContentSyncProps = {
+  field: string | SugarableRelativeSingleField
+}
+
+const PlateContentSync = ({ field }: PlateContentSyncProps) => {
+  const contentField = useField(field)
+  const fieldAccessor = contentField.getAccessor
+  const fieldValue = contentField.value
+  const editor = useEditorRef()
+
+  useEffect(() => {
+    if (fieldValue !== fieldAccessor().value) {
+      return
+    }
+    const currValue =
+      isJsonContent(fieldValue) && fieldValue.children.length > 0
+        ? fieldValue.children
+        : editor.childrenFactory()
+    if (currValue === editor.children) {
+      return
+    }
+    const normalizedValue =
+      normalizeInitialValue(editor, currValue) ?? currValue
+    replaceNodeChildren(editor, {
+      at: [],
+      nodes: normalizedValue,
+    } as any)
+  }, [editor, fieldAccessor, fieldValue])
+
+  return null
+}

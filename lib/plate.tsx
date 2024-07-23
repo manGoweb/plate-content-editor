@@ -367,7 +367,9 @@ export type PlateEditorProps = PropsWithChildren<
   Omit<ComponentProps<typeof Plate>, 'children'>
 > & {
   hideEverythingForReadOnly?: boolean
-} & ContemberContextType
+} & ContemberContextType & {
+    additionalToolbarButtons?: React.ReactNode
+  }
 export const PlateEditor = (props: PlateEditorProps) => {
   return (
     <ContemberProvider isContember={props.isContember}>
@@ -380,7 +382,9 @@ export const PlateEditor = (props: PlateEditorProps) => {
               ) : (
                 <>
                   <FixedToolbar>
-                    <FixedToolbarButtons />
+                    <FixedToolbarButtons>
+                      {props.additionalToolbarButtons}
+                    </FixedToolbarButtons>
                   </FixedToolbar>
 
                   <Editor className="my-4" />

@@ -29,8 +29,9 @@ import { MarkToolbarButton } from './mark-toolbar-button'
 import { ModeDropdownMenu } from './mode-dropdown-menu'
 import { ToolbarGroup } from './toolbar'
 import { TurnIntoDropdownMenu } from './turn-into-dropdown-menu'
+import type { PropsWithChildren } from 'react'
 
-export function FixedToolbarButtons() {
+export function FixedToolbarButtons(props: PropsWithChildren) {
   const readOnly = useEditorReadOnly()
 
   return (
@@ -105,6 +106,8 @@ export function FixedToolbarButtons() {
               <TableDropdownMenu />
 
               <EmojiDropdownMenu />
+
+              {props.children}
 
               <MoreDropdownMenu />
             </ToolbarGroup>

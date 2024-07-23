@@ -10,10 +10,14 @@
   ],
   "exports": {
     ".": {
-      "import": "./dist/index.es.js",
-      "types": "./dist/index.d.ts"
+      "import": "./dist/plate.js",
+      "types": "./dist/plate.d.ts"
     },
-    "./dist/style.css": "./dist/style.css"
+    "./contember": {
+      "import": "./dist/plate-contember.js",
+      "types": "./dist/plate-contember.d.ts"
+    },
+    "./plate.css": "./dist/plate.css"
   },
   "scripts": {
     "lint": "biome lint --write .",
@@ -23,6 +27,9 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
+    "@contember/interface": "1.3.0-rc.3",
+    "@contember/react-uploader": "1.3.0-rc.3",
+    
     "@ariakit/react": "^0.4.7",
     "@radix-ui/react-avatar": "^1.1.0",
     "@radix-ui/react-checkbox": "^1.1.1",

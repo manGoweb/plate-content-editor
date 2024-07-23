@@ -1,5 +1,5 @@
 import { createRoot } from 'react-dom/client'
-import { PlateEditor } from '.'
+import { PlateEditor } from './plate'
 
 const rootEl = document.body.appendChild(document.createElement('div'))
 
