@@ -14,9 +14,6 @@ createRoot(rootEl, {}).render(
       border: '1px solid #cdd1d8',
       borderRadius: '8px',
       padding: '20px',
-
-      fontFamily:
-        'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
     }}
   >
     <PlateEditor />
