@@ -1,3 +1,9 @@
+'use client'
+
+import './styles/globals.css'
+
+import PlateEditor, { type PlateEditorProps } from './plate'
+
 import {
   Component,
   Field,
@@ -11,15 +17,14 @@ import {
 } from '@udecode/plate-common'
 import { useEffect } from 'react'
 
-import { isJsonContent, isJsonObject } from './utils'
-import { PlateEditor, type PlateEditorProps } from '../plate'
-import { ContemberImageToolBarButton } from './contember-image-toolbar-button'
+import { isJsonContent, isJsonObject } from './contember/utils'
+import { ContemberImageToolBarButton } from './contember/contember-image-toolbar-button'
 
 export type PlateEditorForContemberProps = {
   field: string | SugarableRelativeSingleField
 }
 
-export const PlateEditorForContember = Component<
+const PlateEditorForContember = Component<
   PlateEditorProps & PlateEditorForContemberProps
 >(
   (props) => {
@@ -102,3 +107,6 @@ const PlateContentSync = ({ field }: PlateContentSyncProps) => {
 
   return null
 }
+
+
+export default PlateEditorForContember

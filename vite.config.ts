@@ -4,30 +4,31 @@ import { defineConfig } from 'vite'
 
 import react from '@vitejs/plugin-react'
 import dts from 'vite-plugin-dts'
-import tailwindcss from 'tailwindcss'
 import tsconfig from 'vite-tsconfig-paths'
 
+import tailwindcss from 'tailwindcss'
+
 const contemberPackages = ['@contember/interface', '@contember/react-uploader']
+
+const entries = {
+  plate: path.resolve(__dirname, 'lib/plate.tsx'),
+
+  'plate-contember': path.resolve(__dirname, 'lib/plate-contember.tsx'),
+
+  'plate-readonly': path.resolve(__dirname, 'lib/plate-readonly.tsx'),
+}
+
 export default defineConfig({
   optimizeDeps: {
     exclude: contemberPackages,
   },
   build: {
     lib: {
-      entry: {
-        plate: path.resolve(__dirname, 'lib/plate.tsx'),
-        'plate-contember': path.resolve(
-          __dirname,
-          'lib/contember/plate-contember.tsx'
-        ),
-      },
+      entry: entries,
       formats: ['es'],
     },
     rollupOptions: {
-      external: [
-        'react', 'react-dom', 'tailwindcss',
-        ...contemberPackages,
-      ],
+      external: ['react', 'react-dom', 'tailwindcss', ...contemberPackages],
       output: {
         globals: {
           react: 'React',
