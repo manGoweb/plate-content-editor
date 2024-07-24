@@ -1,7 +1,5 @@
 'use client'
 
-import { cn } from '@udecode/cn'
-
 import './styles/globals.css'
 
 export const initialValue = [
