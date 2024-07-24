@@ -135,8 +135,8 @@ export const plugins = createPlugins(
     createBlockquotePlugin(),
     createCodeBlockPlugin({
       options: {
-        prism: Prism
-      }
+        prism: Prism,
+      },
     }),
     createHorizontalRulePlugin(),
     createLinkPlugin({

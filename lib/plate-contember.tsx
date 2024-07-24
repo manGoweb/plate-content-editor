@@ -108,5 +108,4 @@ const PlateContentSync = ({ field }: PlateContentSyncProps) => {
   return null
 }
 
-
 export default PlateEditorForContember
