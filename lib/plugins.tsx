@@ -31,7 +31,6 @@ import {
   ELEMENT_CODE_LINE,
   ELEMENT_CODE_SYNTAX,
 } from '@udecode/plate-code-block'
-import { createCommentsPlugin, MARK_COMMENT } from '@udecode/plate-comments'
 import {
   createPlugins,
   PlateLeaf,
@@ -106,7 +105,6 @@ import { CodeLineElement } from '@/components/plate-ui/code-line-element'
 import { CodeSyntaxLeaf } from '@/components/plate-ui/code-syntax-leaf'
 import { ColumnElement } from '@/components/plate-ui/column-element'
 import { ColumnGroupElement } from '@/components/plate-ui/column-group-element'
-import { CommentLeaf } from '@/components/plate-ui/comment-leaf'
 
 import { HeadingElement } from '@/components/plate-ui/heading-element'
 import { HighlightLeaf } from '@/components/plate-ui/highlight-leaf'
@@ -281,7 +279,6 @@ export const plugins = createPlugins(
     createTrailingBlockPlugin({
       options: { type: ELEMENT_PARAGRAPH },
     }),
-    createCommentsPlugin(),
     createAutoformatPlugin({
       options: {
         rules: [
@@ -324,7 +321,6 @@ export const plugins = createPlugins(
         [ELEMENT_TODO_LI]: TodoListElement,
         [MARK_BOLD]: withProps(PlateLeaf, { as: 'strong' }),
         [MARK_CODE]: CodeLeaf,
-        [MARK_COMMENT]: CommentLeaf,
         [MARK_HIGHLIGHT]: HighlightLeaf,
         [MARK_ITALIC]: withProps(PlateLeaf, { as: 'em' }),
         [MARK_KBD]: KbdLeaf,
