@@ -15,14 +15,12 @@ import type { PlateEditorProps } from './plate'
 
 const PlateEditorReadonly = (props: PlateEditorProps) => {
   return (
-    <DndProvider backend={HTML5Backend}>
-      <TooltipProvider>
+
         <Plate plugins={props.plugins ?? plugins} {...props} readOnly>
           <Editor />
           {props.children}
         </Plate>
-      </TooltipProvider>
-    </DndProvider>
+   
   )
 }
 
