@@ -6,11 +6,13 @@ import { ResizableProvider, useResizableStore } from '@udecode/plate-resizable'
 //import { Caption, CaptionTextarea } from './caption'
 import { MediaPopover } from './media-popover'
 import { Resizable, ResizeHandle, mediaResizeHandleVariants } from './resizable'
+import { useReadOnly } from 'slate-react'
 
 export const ImageElement = withHOC(
   ResizableProvider,
   withRef<typeof PlateElement>(
     ({ children, className, nodeProps, ...props }, ref) => {
+      const isReadOnly = useReadOnly()
       const { align = 'center', focused, readOnly, selected } = useMediaState()
 
       const width = useResizableStore().get.width()
@@ -30,10 +32,12 @@ export const ImageElement = withHOC(
                   readOnly,
                 }}
               >
-                <ResizeHandle
-                  className={mediaResizeHandleVariants({ direction: 'left' })}
-                  options={{ direction: 'left' }}
-                />
+                {!isReadOnly && (
+                  <ResizeHandle
+                    className={mediaResizeHandleVariants({ direction: 'left' })}
+                    options={{ direction: 'left' }}
+                  />
+                )}
                 <Image
                   alt=""
                   className={cn(
@@ -43,12 +47,14 @@ export const ImageElement = withHOC(
                   )}
                   {...nodeProps}
                 />
-                <ResizeHandle
-                  className={mediaResizeHandleVariants({
-                    direction: 'right',
-                  })}
-                  options={{ direction: 'right' }}
-                />
+                {!isReadOnly && (
+                  <ResizeHandle
+                    className={mediaResizeHandleVariants({
+                      direction: 'right',
+                    })}
+                    options={{ direction: 'right' }}
+                  />
+                )}
               </Resizable>
 
               {/* <Caption align={align} style={{ width }}>

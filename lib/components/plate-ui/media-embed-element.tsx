@@ -14,10 +14,12 @@ import { ResizableProvider, useResizableStore } from '@udecode/plate-resizable'
 //import { Caption, CaptionTextarea } from './caption'
 import { MediaPopover } from './media-popover'
 import { Resizable, ResizeHandle, mediaResizeHandleVariants } from './resizable'
+import { useReadOnly } from 'slate-react'
 
 export const MediaEmbedElement = withHOC(
   ResizableProvider,
   withRef<typeof PlateElement>(({ children, className, ...props }, ref) => {
+    const isReadOnly = useReadOnly()
     const {
       align = 'center',
       embed,
@@ -49,10 +51,12 @@ export const MediaEmbedElement = withHOC(
                 minWidth: isTweet ? 300 : 100,
               }}
             >
-              <ResizeHandle
-                className={mediaResizeHandleVariants({ direction: 'left' })}
-                options={{ direction: 'left' }}
-              />
+              {!isReadOnly && (
+                <ResizeHandle
+                  className={mediaResizeHandleVariants({ direction: 'left' })}
+                  options={{ direction: 'left' }}
+                />
+              )}
 
               {isVideo ? (
                 isYoutube ? (
@@ -113,10 +117,12 @@ export const MediaEmbedElement = withHOC(
                 </div>
               )}
 
-              <ResizeHandle
-                className={mediaResizeHandleVariants({ direction: 'right' })}
-                options={{ direction: 'right' }}
-              />
+              {!isReadOnly && (
+                <ResizeHandle
+                  className={mediaResizeHandleVariants({ direction: 'right' })}
+                  options={{ direction: 'right' }}
+                />
+              )}
             </Resizable>
 
             {/* <Caption align={align} style={{ width }}>
