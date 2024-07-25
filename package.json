@@ -31,6 +31,7 @@
     "format": "biome format --write .",
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:web": "tsc && vite build --config vite.config.web.ts",
     "clean": "rm -rf dist"
   },
   "dependencies": {

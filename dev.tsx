@@ -3,4 +3,12 @@ import PlateEditor from './lib/plate'
 
 const rootEl = document.body.appendChild(document.createElement('div'))
 
-createRoot(rootEl, {}).render(<PlateEditor />)
+createRoot(rootEl, {}).render(
+  <div
+    style={{
+      marginInline: '60px',
+    }}
+  >
+    <PlateEditor />
+  </div>
+)
