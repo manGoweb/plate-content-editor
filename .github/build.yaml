@@ -1,0 +1,36 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - "master"
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 🚚
+        uses: actions/checkout@v4
+
+      - name: Pnpm setup 📦
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: Node.js setup 📦
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "pnpm"
+
+      - name: Install dependencies 📦
+        run: pnpm i
+
+      - name: Check 📋
+        run: pnpm lint
+
+      - name: Build 🔨
+        run: pnpm build
