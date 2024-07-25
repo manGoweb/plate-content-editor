@@ -15,12 +15,10 @@ import type { PlateEditorProps } from './plate'
 
 const PlateEditorReadonly = (props: PlateEditorProps) => {
   return (
-
-        <Plate plugins={props.plugins ?? plugins} {...props} readOnly>
-          <Editor />
-          {props.children}
-        </Plate>
-   
+    <Plate plugins={props.plugins ?? plugins} {...props} readOnly>
+      <Editor />
+      {props.children}
+    </Plate>
   )
 }
 

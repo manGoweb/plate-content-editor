@@ -57,7 +57,12 @@ export default defineConfig({
     sourcemap: false,
     emptyOutDir: true,
   },
-  plugins: [react(), tsconfig(), dts({ rollupTypes: true, outDir: 'dist' }), preserveDirectives()],
+  plugins: [
+    react(),
+    tsconfig(),
+    dts({ rollupTypes: true, outDir: 'dist' }),
+    preserveDirectives(),
+  ],
   css: {
     postcss: {
       plugins: [tailwindcss],
