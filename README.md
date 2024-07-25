@@ -1,5 +1,7 @@
 # App
 
+<img width="1394" alt="image" src="https://github.com/user-attachments/assets/fd4c9a7e-2f44-477a-95ef-fb2a60eb2aa6">
+
 ## Requirements
 
 - Node.js
