@@ -1,0 +1,41 @@
+name: Publish plate to GitHub Packages 😋
+on:
+  release:
+      tags: [v*]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout 🚚
+        uses: actions/checkout@v4
+
+      - name: Pnpm setup 📦
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: Node.js setup 📦
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: 'https://npm.pkg.github.com'
+          cache: "pnpm"
+
+      - name: Install dependencies 📦
+        run: pnpm i --frozen-lockfile
+
+      - name: Check 📋
+        run: pnpm lint
+
+      - name: Build 🔨
+        run: pnpm build
+
+      - name: Publish 🙏
+      - run: pnpm publish --access public  --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
