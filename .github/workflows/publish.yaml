@@ -1,6 +1,6 @@
 name: Publish plate to GitHub Packages 😋
 on:
-  release:
+  push:
       tags: [v*]
 jobs:
   build:
