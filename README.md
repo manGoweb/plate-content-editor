@@ -99,6 +99,7 @@ export const BlogContentRender = (props: BlogContentRenderProps) => {
 ```tsx
 'use client'
 
+import "@mangoweb/plate-content-editor/plate.css"
 const Plate = dynamic(() => import('@mangoweb/plate-content-editor/readonly'), {
   loading: () => <p>Loading...</p>,
 })
