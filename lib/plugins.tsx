@@ -75,7 +75,6 @@ import {
   ELEMENT_IMAGE,
   ELEMENT_MEDIA_EMBED,
 } from '@udecode/plate-media'
-import { createMentionPlugin, ELEMENT_MENTION } from '@udecode/plate-mention'
 import { createNodeIdPlugin } from '@udecode/plate-node-id'
 import {
   createParagraphPlugin,
@@ -114,7 +113,6 @@ import { KbdLeaf } from '@/components/plate-ui/kbd-leaf'
 import { LinkElement } from '@/components/plate-ui/link-element'
 import { LinkFloatingToolbar } from '@/components/plate-ui/link-floating-toolbar'
 import { MediaEmbedElement } from '@/components/plate-ui/media-embed-element'
-import { MentionElement } from '@/components/plate-ui/mention-element'
 import { ParagraphElement } from '@/components/plate-ui/paragraph-element'
 import { withPlaceholders } from '@/components/plate-ui/placeholder'
 import {
@@ -154,7 +152,6 @@ export const plugins = createPlugins(
     //     ],
     //   },
     // }),
-    createMentionPlugin(),
     createTablePlugin(),
     createTodoListPlugin(),
     createBoldPlugin(),
@@ -312,7 +309,6 @@ export const plugins = createPlugins(
         [ELEMENT_H5]: withProps(HeadingElement, { variant: 'h5' }),
         [ELEMENT_H6]: withProps(HeadingElement, { variant: 'h6' }),
         [ELEMENT_MEDIA_EMBED]: MediaEmbedElement,
-        [ELEMENT_MENTION]: MentionElement,
         [ELEMENT_PARAGRAPH]: ParagraphElement,
         [ELEMENT_TABLE]: TableElement,
         [ELEMENT_TR]: TableRowElement,
