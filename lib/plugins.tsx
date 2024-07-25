@@ -127,7 +127,7 @@ import { withDraggables } from '@/components/plate-ui/with-draggables'
 import { withProps } from '@udecode/cn'
 
 import { Prism } from './components/plate-ui/code-block-combobox'
-export const plugins = createPlugins(
+export const defaultPlugins = createPlugins(
   [
     createParagraphPlugin(),
     createBlockquotePlugin(),

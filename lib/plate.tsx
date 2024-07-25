@@ -36,31 +36,47 @@ import { FixedToolbarButtons } from './components/plate-ui/fixed-toolbar-buttons
 import { FloatingToolbar } from './components/plate-ui/floating-toolbar'
 import { FloatingToolbarButtons } from './components/plate-ui/floating-toolbar-buttons'
 
-import { plugins } from './plugins'
+import { defaultPlugins } from './plugins'
 import { Wrapper } from './components/wrapper'
+import { cn } from '@udecode/cn'
 
 export type PlateEditorProps = PropsWithChildren<
   Omit<ComponentProps<typeof Plate>, 'children'>
->
+> & {
+  className?: string
+}
 
 type Props = PlateEditorProps &
   ContemberContextType & {
     additionalToolbarButtons?: ReactNode
+  } & {
+    wrapperClassName?: string
   }
 
 export type PlateEditorValue = PlateEditorProps['value']
 
+export { defaultPlugins }
+
 const PlateEditor = (props: Props) => {
+  const {
+    isContember,
+    wrapperClassName,
+    plugins,
+    additionalToolbarButtons,
+    className,
+    children,
+  } = props
+
   return (
-    <ContemberProvider isContember={props.isContember}>
+    <ContemberProvider isContember={isContember}>
       <DndProvider backend={HTML5Backend}>
         <TooltipProvider>
-          <Wrapper className="mt-20">
-            <Plate plugins={props.plugins ?? plugins} {...props}>
+          <Wrapper className={cn('mt-20', wrapperClassName)}>
+            <Plate plugins={plugins ?? defaultPlugins} {...props}>
               <>
                 <FixedToolbar className="no-scrollbar">
                   <FixedToolbarButtons>
-                    {props.additionalToolbarButtons}
+                    {additionalToolbarButtons}
                   </FixedToolbarButtons>
                 </FixedToolbar>
                 <div
@@ -71,7 +87,7 @@ const PlateEditor = (props: Props) => {
                     } as CSSProperties
                   }
                 >
-                  <Editor className="min-h-80" />
+                  <Editor className={cn('min-h-80', className)} />
 
                   <FloatingToolbar>
                     <FloatingToolbarButtons />
@@ -79,7 +95,7 @@ const PlateEditor = (props: Props) => {
                 </div>
               </>
 
-              {props.children}
+              {children}
             </Plate>
           </Wrapper>
         </TooltipProvider>
