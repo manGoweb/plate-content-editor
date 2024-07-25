@@ -81,9 +81,9 @@ type PlateContentSyncProps = {
 }
 
 const PlateContentSync = ({ field }: PlateContentSyncProps) => {
-  const contentField = useField(field)
-  const fieldAccessor = contentField.getAccessor
-  const fieldValue = contentField.value
+  const PlateContentSyncOnMount = useField(field)
+  const fieldAccessor = PlateContentSyncOnMount.getAccessor
+  const fieldValue = PlateContentSyncOnMount.value
   const editor = useEditorRef()
 
   useEffect(() => {
@@ -103,7 +103,7 @@ const PlateContentSync = ({ field }: PlateContentSyncProps) => {
       at: [],
       nodes: normalizedValue,
     } as any)
-  }, [editor, fieldAccessor, fieldValue])
+  }, [])
 
   return null
 }
