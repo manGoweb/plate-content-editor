@@ -68,3 +68,48 @@ import PlateEditorForContember from "@mangoweb/plate-content-editor/contember";
   <PlateEditorForContember field="data" />
 </HasOne>;
 ```
+
+### Next
+
+#### RSC
+
+(Text and images would be rendered during static generation)
+
+```tsx
+'use client'
+
+import type { PlateEditorValue } from '@mangoweb/plate-content-editor'
+
+import "@mangoweb/plate-content-editor/plate.css"
+import Plate from '@mangoweb/plate-content-editor/readonly'
+
+type BlogContentRenderProps = {
+  content: unknown
+}
+export const BlogContentRender = (props: BlogContentRenderProps) => {
+  const { content } = props
+
+  const parsed = content as PlateEditorValue
+  return <Plate value={parsed} />
+}
+```
+
+#### Dynamic
+
+```tsx
+'use client'
+
+const Plate = dynamic(() => import('@mangoweb/plate-content-editor/readonly'), {
+  loading: () => <p>Loading...</p>,
+})
+
+type BlogContentRenderProps = {
+  content: unknown
+}
+export const BlogContentRender = (props: BlogContentRenderProps) => {
+  const { content } = props
+
+  const parsed = content as PlateEditorValue
+  return <Plate value={parsed} />
+}
+```
