@@ -1,6 +1,9 @@
 {
-  "name": "plate",
+  "name": "@manGoweb/plate-content-editor",
   "version": "0.0.1",
+  "repository": {
+    "url": "https://github.com/manGoweb/plate-content-editor"
+  },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
