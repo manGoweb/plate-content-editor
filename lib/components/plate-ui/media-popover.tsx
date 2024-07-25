@@ -17,7 +17,7 @@ import { useReadOnly, useSelected } from 'slate-react'
 import { Icons } from '@/components/icons'
 
 import { Button, buttonVariants } from './button'
-import { CaptionButton } from './caption'
+//import { CaptionButton } from './caption'
 import { inputVariants } from './input'
 import { Popover, PopoverAnchor, PopoverContent } from './popover'
 import { Separator } from './separator'
@@ -82,7 +82,7 @@ export function MediaPopover({ children, pluginKey }: MediaPopoverProps) {
               Edit link
             </FloatingMediaPrimitive.EditButton>
 
-            <CaptionButton variant="ghost">Caption</CaptionButton>
+            {/* <CaptionButton variant="ghost">Caption</CaptionButton> */}
 
             <Separator className="my-1" orientation="vertical" />
 
