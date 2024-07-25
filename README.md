@@ -34,10 +34,16 @@ pnpm dev
 
 ```npmrc
 @mangoweb:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=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
+//npm.pkg.github.com/:_authToken=ghp_YOUR_TOKEN
 ```
 
+[Generate a new token](https://github.com/settings/tokens/new)
+
+read:packages
+
+```sh
 pnpm i @mangoweb/plate-content-editor
+```
 
 ### Contember
 
