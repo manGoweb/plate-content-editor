@@ -4,6 +4,7 @@
 
 ## Requirements
 
+- React 19 (When using npm package)
 - Node.js
 - pnpm
 
@@ -76,41 +77,50 @@ import PlateEditorForContember from "@mangoweb/plate-content-editor/contember";
 (Text and images would be rendered during static generation)
 
 ```tsx
-'use client'
+"use client";
 
-import type { PlateEditorValue } from '@mangoweb/plate-content-editor'
+import type { PlateEditorValue } from "@mangoweb/plate-content-editor";
 
-import "@mangoweb/plate-content-editor/plate.css"
-import Plate from '@mangoweb/plate-content-editor/readonly'
+import "@mangoweb/plate-content-editor/plate.css";
+import Plate from "@mangoweb/plate-content-editor/readonly";
 
 type BlogContentRenderProps = {
-  content: unknown
-}
+  content: unknown;
+};
 export const BlogContentRender = (props: BlogContentRenderProps) => {
-  const { content } = props
+  const { content } = props;
 
-  const parsed = content as PlateEditorValue
-  return <Plate value={parsed} />
-}
+  const parsed = content as PlateEditorValue;
+  return <Plate value={parsed} />;
+};
 ```
 
 #### Dynamic
 
 ```tsx
-'use client'
+"use client";
 
-import "@mangoweb/plate-content-editor/plate.css"
-const Plate = dynamic(() => import('@mangoweb/plate-content-editor/readonly'), {
+import "@mangoweb/plate-content-editor/plate.css";
+const Plate = dynamic(() => import("@mangoweb/plate-content-editor/readonly"), {
   loading: () => <p>Loading...</p>,
-})
+});
 
 type BlogContentRenderProps = {
-  content: unknown
-}
+  content: unknown;
+};
 export const BlogContentRender = (props: BlogContentRenderProps) => {
-  const { content } = props
+  const { content } = props;
 
-  const parsed = content as PlateEditorValue
-  return <Plate value={parsed} />
-}
+  const parsed = content as PlateEditorValue;
+  return <Plate value={parsed} />;
+};
 ```
+
+### Monorepo
+
+```sh
+git clone --depth 1 https://github.com/manGoweb/plate-content-editor.git
+rm -rf plate-content-editor/.git
+```
+
+Replace `@mangoweb/plate-content-editor` with your monorepo name and add package to workspace
