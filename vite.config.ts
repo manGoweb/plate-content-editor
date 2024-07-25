@@ -6,6 +6,8 @@ import react from '@vitejs/plugin-react'
 import dts from 'vite-plugin-dts'
 import tsconfig from 'vite-tsconfig-paths'
 
+import preserveDirectives from 'rollup-plugin-preserve-directives'
+
 import tailwindcss from 'tailwindcss'
 
 const contemberPackages = ['@contember/interface', '@contember/react-uploader']
@@ -23,6 +25,12 @@ export default defineConfig({
     exclude: contemberPackages,
   },
   build: {
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        directives: false,
+      },
+    },
     lib: {
       entry: entries,
       formats: ['es'],
@@ -30,6 +38,15 @@ export default defineConfig({
     rollupOptions: {
       external: ['react', 'react-dom', 'tailwindcss', ...contemberPackages],
       output: {
+        preserveModules: true,
+        preserveModulesRoot: 'lib',
+        entryFileNames: (chunkInfo) => {
+          if (chunkInfo.name.includes('node_modules')) {
+            return chunkInfo.name.replace('node_modules', 'external') + '.js'
+          }
+
+          return '[name].js'
+        },
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
@@ -40,7 +57,7 @@ export default defineConfig({
     sourcemap: false,
     emptyOutDir: true,
   },
-  plugins: [react(), tsconfig(), dts({ rollupTypes: true, outDir: 'dist' })],
+  plugins: [react(), tsconfig(), dts({ rollupTypes: true, outDir: 'dist' }), preserveDirectives()],
   css: {
     postcss: {
       plugins: [tailwindcss],
