@@ -73,7 +73,7 @@ const Editor = React.forwardRef<HTMLDivElement, EditorProps>(
               size,
               variant,
             }),
-            readOnly && 'bg-transparent',
+            readOnly && 'bg-transparent border-0 rounded-none',
             className
           )}
           disableDefaultStyles

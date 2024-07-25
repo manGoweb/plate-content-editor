@@ -13,7 +13,7 @@ const PlateEditorReadonly = (props: PlateEditorProps) => {
 
   return (
     <Plate plugins={plugins ?? defaultPlugins} {...props} readOnly>
-      <Editor className={className} />
+      <Editor className={className} readOnly />
       {children}
     </Plate>
   )
