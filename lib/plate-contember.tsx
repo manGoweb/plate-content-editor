@@ -2,7 +2,7 @@
 
 import './styles/globals.css'
 
-import PlateEditor, { type PlateEditorProps } from './plate'
+import PlateEditor, { type Props } from './plate'
 
 import {
   Component,
@@ -24,9 +24,7 @@ export type PlateEditorForContemberProps = {
   field: string | SugarableRelativeSingleField
 }
 
-const PlateEditorForContember = Component<
-  PlateEditorProps & PlateEditorForContemberProps
->(
+const PlateEditorForContember = Component<Props & PlateEditorForContemberProps>(
   (props) => {
     const { field } = props
 

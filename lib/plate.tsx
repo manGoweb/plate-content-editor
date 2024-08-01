@@ -46,7 +46,7 @@ export type PlateEditorProps = PropsWithChildren<
   className?: string
 }
 
-type Props = PlateEditorProps &
+export type Props = PlateEditorProps &
   ContemberContextType & {
     additionalToolbarButtons?: ReactNode
   } & {
