@@ -68,39 +68,41 @@ const PlateEditor = (props: Props) => {
   } = props
 
   return (
-    <ContemberProvider isContember={isContember}>
-      <DndProvider backend={HTML5Backend}>
-        <TooltipProvider>
-          <Wrapper className={cn('mt-20', wrapperClassName)}>
-            <Plate plugins={plugins ?? defaultPlugins} {...props}>
-              <>
-                <FixedToolbar className="no-scrollbar">
-                  <FixedToolbarButtons>
-                    {additionalToolbarButtons}
-                  </FixedToolbarButtons>
-                </FixedToolbar>
-                <div
-                  className="flex w-full"
-                  style={
-                    {
-                      '--editor-px': 'max(5%,24px)',
-                    } as CSSProperties
-                  }
-                >
-                  <Editor className={cn('min-h-80', className)} />
+    <div className="pce">
+      <ContemberProvider isContember={isContember}>
+        <DndProvider backend={HTML5Backend}>
+          <TooltipProvider>
+            <Wrapper className={cn('mt-20', wrapperClassName)}>
+              <Plate plugins={plugins ?? defaultPlugins} {...props}>
+                <>
+                  <FixedToolbar className="no-scrollbar">
+                    <FixedToolbarButtons>
+                      {additionalToolbarButtons}
+                    </FixedToolbarButtons>
+                  </FixedToolbar>
+                  <div
+                    className="flex w-full"
+                    style={
+                      {
+                        '--editor-px': 'max(5%,24px)',
+                      } as CSSProperties
+                    }
+                  >
+                    <Editor className={cn('min-h-80', className)} />
 
-                  <FloatingToolbar>
-                    <FloatingToolbarButtons />
-                  </FloatingToolbar>
-                </div>
-              </>
+                    <FloatingToolbar>
+                      <FloatingToolbarButtons />
+                    </FloatingToolbar>
+                  </div>
+                </>
 
-              {children}
-            </Plate>
-          </Wrapper>
-        </TooltipProvider>
-      </DndProvider>
-    </ContemberProvider>
+                {children}
+              </Plate>
+            </Wrapper>
+          </TooltipProvider>
+        </DndProvider>
+      </ContemberProvider>
+    </div>
   )
 }
 

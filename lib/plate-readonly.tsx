@@ -12,10 +12,12 @@ const PlateEditorReadonly = (props: PlateEditorProps) => {
   const { plugins, className, children } = props
 
   return (
-    <Plate plugins={plugins ?? defaultPlugins} {...props} readOnly>
-      <Editor className={className} readOnly />
-      {children}
-    </Plate>
+    <div className="pce">
+      <Plate plugins={plugins ?? defaultPlugins} {...props} readOnly>
+        <Editor className={className} readOnly />
+        {children}
+      </Plate>
+    </div>
   )
 }
 

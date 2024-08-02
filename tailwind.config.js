@@ -1,4 +1,10 @@
-const { fontFamily } = require('tailwindcss/defaultTheme')
+import { fontFamily } from 'tailwindcss/defaultTheme'
+
+import tailwindAnimate from 'tailwindcss-animate'
+import {
+  scopedPreflightStyles,
+  isolateInsideOfContainer,
+} from 'tailwindcss-scoped-preflight'
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -74,5 +80,10 @@ module.exports = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [
+    tailwindAnimate,
+    scopedPreflightStyles({
+      isolationStrategy: isolateInsideOfContainer('.pce'),
+    }),
+  ],
 }
