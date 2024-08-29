@@ -6,6 +6,7 @@ const rootEl = document.body.appendChild(document.createElement('div'))
 createRoot(rootEl, {}).render(
   <div
     style={{
+      marginBlock: '60px',
       marginInline: '60px',
     }}
   >

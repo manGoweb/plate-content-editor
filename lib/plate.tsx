@@ -72,7 +72,7 @@ const PlateEditor = (props: Props) => {
       <ContemberProvider isContember={isContember}>
         <DndProvider backend={HTML5Backend}>
           <TooltipProvider>
-            <Wrapper className={cn('mt-20', wrapperClassName)}>
+            <Wrapper className={wrapperClassName}>
               <Plate plugins={plugins ?? defaultPlugins} {...props}>
                 <>
                   <FixedToolbar className="no-scrollbar">
