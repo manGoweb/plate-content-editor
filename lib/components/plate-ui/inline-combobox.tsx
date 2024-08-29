@@ -234,10 +234,10 @@ const InlineComboboxInput = forwardRef<
     <>
       {showTrigger && trigger}
 
-      <span className="relative min-h-[1lh]">
+      <span className="pce-relative pce-min-h-[1lh]">
         <span
           aria-hidden="true"
-          className="invisible overflow-hidden text-nowrap"
+          className="pce-invisible pce-overflow-hidden pce-text-nowrap"
         >
           {value || '\u200B'}
         </span>
@@ -245,7 +245,7 @@ const InlineComboboxInput = forwardRef<
         <Combobox
           autoSelect
           className={cn(
-            'absolute left-0 top-0 size-full bg-transparent outline-none',
+            'pce-absolute pce-left-0 pce-top-0 pce-size-full pce-bg-transparent pce-outline-none',
             className
           )}
           ref={ref}
@@ -269,7 +269,7 @@ const InlineComboboxContent: typeof ComboboxPopover = ({
     <Portal>
       <ComboboxPopover
         className={cn(
-          'z-[500] max-h-[288px] w-[300px] overflow-y-auto rounded-md bg-popover shadow-md',
+          'pce-z-[500] pce-max-h-[288px] pce-w-[300px] pce-overflow-y-auto pce-rounded-md pce-bg-white pce-shadow-md dark:pce-bg-slate-950',
           className
         )}
         {...props}
@@ -279,15 +279,15 @@ const InlineComboboxContent: typeof ComboboxPopover = ({
 }
 
 const comboboxItemVariants = cva(
-  'relative flex h-9 select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none',
+  'pce-relative pce-flex pce-h-9 pce-select-none pce-items-center pce-rounded-sm pce-px-2 pce-py-1.5 pce-text-sm pce-outline-none',
   {
     defaultVariants: {
       interactive: true,
     },
     variants: {
       interactive: {
-        false: '',
-        true: 'cursor-pointer transition-colors hover:bg-accent hover:text-accent-foreground data-[active-item=true]:bg-accent data-[active-item=true]:text-accent-foreground',
+        false: 'pce-',
+        true: 'pce-cursor-pointer pce-transition-colors hover:pce-bg-slate-100 hover:pce-text-slate-900 data-[active-item=true]:pce-bg-slate-100 data-[active-item=true]:pce-text-slate-900 dark:hover:pce-bg-slate-800 dark:hover:pce-text-slate-50 dark:data-[active-item=true]:pce-bg-slate-800 dark:data-[active-item=true]:pce-text-slate-50',
       },
     },
   }

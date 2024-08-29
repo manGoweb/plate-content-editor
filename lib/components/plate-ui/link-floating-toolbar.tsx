@@ -74,10 +74,10 @@ export function LinkFloatingToolbar({ state }: LinkFloatingToolbarProps) {
   if (hidden) return null
 
   const input = (
-    <div className="flex w-[330px] flex-col" {...inputProps}>
-      <div className="flex items-center">
-        <div className="flex items-center pl-3 text-muted-foreground">
-          <Icons.link className="size-4" />
+    <div className="pce-flex pce-w-[330px] pce-flex-col" {...inputProps}>
+      <div className="pce-flex pce-items-center">
+        <div className="pce-flex pce-items-center pce-pl-3 pce-text-slate-500 dark:pce-text-slate-400">
+          <Icons.link className="pce-size-4" />
         </div>
 
         <FloatingLinkUrlInput
@@ -86,9 +86,9 @@ export function LinkFloatingToolbar({ state }: LinkFloatingToolbarProps) {
         />
       </div>
       <Separator />
-      <div className="flex items-center">
-        <div className="flex items-center pl-3 text-muted-foreground">
-          <Icons.text className="size-4" />
+      <div className="pce-flex pce-items-center">
+        <div className="pce-flex pce-items-center pce-pl-3 pce-text-slate-500 dark:pce-text-slate-400">
+          <Icons.text className="pce-size-4" />
         </div>
         <input
           className={inputVariants({ h: 'sm', variant: 'ghost' })}
@@ -102,7 +102,7 @@ export function LinkFloatingToolbar({ state }: LinkFloatingToolbarProps) {
   const editContent = editState.isEditing ? (
     input
   ) : (
-    <div className="box-content flex h-9 items-center gap-1">
+    <div className="pce-box-content pce-flex pce-h-9 pce-items-center pce-gap-1">
       <button
         className={buttonVariants({ size: 'sm', variant: 'ghost' })}
         type="button"
@@ -140,7 +140,7 @@ export function LinkFloatingToolbar({ state }: LinkFloatingToolbarProps) {
   return (
     <>
       <div
-        className={cn(popoverVariants(), 'w-auto p-1')}
+        className={cn(popoverVariants(), 'pce-w-auto pce-p-1')}
         ref={insertRef}
         {...insertProps}
       >
@@ -148,7 +148,7 @@ export function LinkFloatingToolbar({ state }: LinkFloatingToolbarProps) {
       </div>
 
       <div
-        className={cn(popoverVariants(), 'w-auto p-1')}
+        className={cn(popoverVariants(), 'pce-w-auto pce-p-1')}
         ref={editRef}
         {...editProps}
       >

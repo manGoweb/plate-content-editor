@@ -33,7 +33,7 @@ export function ColorsCustom({
   const { inputProps, menuItemProps } = useColorsCustom(state)
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="pce-flex pce-flex-col pce-gap-4">
       <ColorInput {...inputProps}>
         <DropdownMenuItem
           className={buttonVariants({

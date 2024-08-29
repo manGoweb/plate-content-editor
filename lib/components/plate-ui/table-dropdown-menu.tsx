@@ -49,7 +49,7 @@ export function TableDropdownMenu(props: DropdownMenuProps) {
 
       <DropdownMenuContent
         align="start"
-        className="flex w-[180px] min-w-0 flex-col gap-0.5"
+        className="pce-flex pce-w-[180px] pce-min-w-0 pce-flex-col pce-gap-0.5"
       >
         <DropdownMenuSub>
           <DropdownMenuSubTrigger>
@@ -58,7 +58,7 @@ export function TableDropdownMenu(props: DropdownMenuProps) {
           </DropdownMenuSubTrigger>
           <DropdownMenuSubContent>
             <DropdownMenuItem
-              className="min-w-[180px]"
+              className="pce-min-w-[180px]"
               onSelect={() => {
                 insertTable(editor)
                 focusEditor(editor)
@@ -68,7 +68,7 @@ export function TableDropdownMenu(props: DropdownMenuProps) {
               Insert table
             </DropdownMenuItem>
             <DropdownMenuItem
-              className="min-w-[180px]"
+              className="pce-min-w-[180px]"
               disabled={!tableSelected}
               onSelect={() => {
                 deleteTable(editor)
@@ -88,7 +88,7 @@ export function TableDropdownMenu(props: DropdownMenuProps) {
           </DropdownMenuSubTrigger>
           <DropdownMenuSubContent>
             <DropdownMenuItem
-              className="min-w-[180px]"
+              className="pce-min-w-[180px]"
               disabled={!tableSelected}
               onSelect={() => {
                 insertTableColumn(editor)
@@ -99,7 +99,7 @@ export function TableDropdownMenu(props: DropdownMenuProps) {
               Insert column after
             </DropdownMenuItem>
             <DropdownMenuItem
-              className="min-w-[180px]"
+              className="pce-min-w-[180px]"
               disabled={!tableSelected}
               onSelect={() => {
                 deleteColumn(editor)
@@ -119,7 +119,7 @@ export function TableDropdownMenu(props: DropdownMenuProps) {
           </DropdownMenuSubTrigger>
           <DropdownMenuSubContent>
             <DropdownMenuItem
-              className="min-w-[180px]"
+              className="pce-min-w-[180px]"
               disabled={!tableSelected}
               onSelect={() => {
                 insertTableRow(editor)
@@ -130,7 +130,7 @@ export function TableDropdownMenu(props: DropdownMenuProps) {
               Insert row after
             </DropdownMenuItem>
             <DropdownMenuItem
-              className="min-w-[180px]"
+              className="pce-min-w-[180px]"
               disabled={!tableSelected}
               onSelect={() => {
                 deleteRow(editor)

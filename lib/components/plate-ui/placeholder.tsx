@@ -22,7 +22,7 @@ export const Placeholder = (props: PlaceholderProps) => {
         ...nodeProps,
         className: cn(
           enabled &&
-            'before:absolute before:cursor-text before:opacity-30 before:content-[attr(placeholder)]'
+            'before:pce-absolute before:pce-cursor-text before:pce-opacity-30 before:pce-content-[attr(placeholder)]'
         ),
         placeholder,
       },

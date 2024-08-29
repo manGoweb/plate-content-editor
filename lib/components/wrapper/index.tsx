@@ -23,12 +23,12 @@ export function Wrapper({
   return (
     <div
       className={cn(
-        'relative w-full scroll-m-20',
+        'pce-relative pce-w-full pce-scroll-m-20',
         className,
         fullScreen &&
-          'fixed inset-0 z-50 max-w-none [&_[data-slate-editor]]:max-h-[calc(100dvh-44px)]'
+          'pce-fixed pce-inset-0 pce-z-50 pce-max-w-none [&_[data-slate-editor]]:pce-max-h-[calc(100dvh-44px)]'
         // fullScreen &&
-        //   '[&_[data-slate-editor]]:mx-auto [&_[data-slate-editor]]:max-w-[1125px]'
+        //   '[&_[data-slate-editor]]:pce-mx-auto [&_[data-slate-editor]]:max-w-[1125px]'
       )}
       {...props}
     >
@@ -44,38 +44,38 @@ export function Wrapper({
         <>
           <div
             className={cn(
-              'relative rounded-lg border bg-background',
-              !fullScreen && 'md:hidden',
-              'border-border'
+              'pce-relative pce-rounded-lg pce-border bg-background',
+              !fullScreen && 'md:pce-hidden',
+              'pce-border-border'
             )}
           >
-            <div className="chunk-mode relative z-20 w-full bg-background">
+            <div className="chunk-mode pce-relative pce-z-20 pce-w-full bg-background">
               {children}
             </div>
           </div>
 
-          <div className="relative after:absolute after:inset-0 after:right-3 after:z-0 after:rounded-lg after:bg-muted max-md:hidden">
+          <div className="pce-relative after:pce-absolute after:pce-inset-0 after:pce-right-3 after:pce-z-0 after:pce-rounded-lg after:bg-muted max-md:pce-hidden">
             <ResizablePanelGroup
-              className="relative z-10"
+              className="pce-relative pce-z-10"
               direction="horizontal"
             >
               <ResizablePanel
                 className={cn(
-                  'relative rounded-lg border bg-background',
-                  'border-border'
+                  'pce-relative pce-rounded-lg pce-border bg-background',
+                  'pce-border-border'
                 )}
                 defaultSize={100}
                 minSize={30}
                 ref={ref}
               >
-                <div className="chunk-mode relative z-20 w-full bg-background">
+                <div className="chunk-mode pce-relative pce-z-20 pce-w-full bg-background">
                   {children}
                 </div>
               </ResizablePanel>
 
               <ResizableHandle
                 className={cn(
-                  'relative hidden w-3 bg-transparent p-0 after:absolute after:right-0 after:top-1/2 after:h-8 after:w-[6px] after:-translate-x-px after:-translate-y-1/2 after:rounded-full after:bg-border after:transition-all after:hover:h-10 sm:block'
+                  'pce-relative pce-hidden pce-w-3 pce-bg-transparent pce-p-0 after:pce-absolute after:pce-right-0 after:pce-top-1/2 after:pce-h-8 after:pce-w-[6px] after:pce--translate-x-px after:pce--translate-y-1/2 after:pce-rounded-full after:bg-border after:pce-transition-all after:hover:pce-h-10 sm:pce-block'
                 )}
               />
               <ResizablePanel defaultSize={0} minSize={0} />

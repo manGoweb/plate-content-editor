@@ -9,26 +9,26 @@ import { cva } from 'class-variance-authority'
 
 export const mediaResizeHandleVariants = cva(
   cn(
-    'top-0 flex w-6 select-none flex-col justify-center',
-    "after:flex after:h-16 after:w-[3px] after:rounded-[6px] after:bg-ring after:opacity-0 after:content-['_'] group-hover:after:opacity-100"
+    'pce-top-0 pce-flex pce-w-6 pce-select-none pce-flex-col pce-justify-center',
+    'after:pce-flex after:pce-h-16 after:pce-w-[3px] after:pce-rounded-[6px] after:pce-bg-slate-950 after:pce-opacity-0 after:pce-content-[_] group-hover:after:pce-opacity-100 dark:pce-after:bg-slate-300'
   ),
   {
     variants: {
       direction: {
-        left: '-left-3 -ml-3 pl-3',
-        right: '-right-3 -mr-3 items-end pr-3',
+        left: 'pce-left-3 pce-ml-3 pce-pl-3',
+        right: 'pce-right-3 pce-mr-3 pce-items-end pce-pr-3',
       },
     },
   }
 )
 
-const resizeHandleVariants = cva(cn('absolute z-40'), {
+const resizeHandleVariants = cva(cn('pce-absolute pce-z-40'), {
   variants: {
     direction: {
-      bottom: 'w-full cursor-row-resize',
-      left: 'h-full cursor-col-resize',
-      right: 'h-full cursor-col-resize',
-      top: 'w-full cursor-row-resize',
+      bottom: 'pce-w-full pce-cursor-row-resize',
+      left: 'pce-h-full pce-cursor-col-resize',
+      right: 'pce-h-full pce-cursor-col-resize',
+      top: 'pce-w-full pce-cursor-row-resize',
     },
   },
 })
@@ -49,12 +49,12 @@ export const ResizeHandle = withRef<typeof ResizeHandlePrimitive>(
   )
 )
 
-const resizableVariants = cva('', {
+const resizableVariants = cva('pce-', {
   variants: {
     align: {
-      center: 'mx-auto',
-      left: 'mr-auto',
-      right: 'ml-auto',
+      center: 'pce-mx-auto',
+      left: 'pce-mr-auto',
+      right: 'pce-ml-auto',
     },
   },
 })

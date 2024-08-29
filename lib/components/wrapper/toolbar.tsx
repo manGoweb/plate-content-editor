@@ -19,14 +19,14 @@ export function WrapperToolbar({
   return (
     <div
       className={cn(
-        'flex flex-col items-center gap-4 sm:flex-row',
-        'absolute right-0 z-[60]',
-        !fullScreen && '-top-4 -translate-y-full',
-        fullScreen && 'bottom-4'
+        'pce-flex pce-flex-col pce-items-center pce-gap-4 sm:pce-flex-row',
+        'pce-absolute pce-right-0 pce-z-[60]',
+        !fullScreen && 'pce--top-4 pce--translate-y-full',
+        fullScreen && 'pce-bottom-4'
       )}
     >
-      <div className="flex items-center gap-2 pr-[14px] sm:ml-auto">
-        <div className="hidden h-[28px] items-center gap-1.5 rounded-md border bg-background p-[2px] shadow-sm md:flex">
+      <div className="pce-flex pce-items-center pce-gap-2 pce-pr-[14px] sm:pce-ml-auto">
+        <div className="pce-hidden pce-h-[28px] pce-items-center pce-gap-1.5 pce-rounded-md pce-border bg-background pce-p-[2px] pce-shadow-sm md:pce-flex">
           <ToggleGroup
             defaultValue="100"
             onValueChange={(value) => {
@@ -48,19 +48,28 @@ export function WrapperToolbar({
             type="single"
           >
             <ToggleGroupItem
-              className="size-[22px] rounded-sm p-0"
+              className="pce-size-[22px] pce-rounded-sm pce-p-0"
               value="full"
             >
-              <Maximize className="!size-3.5" />
+              <Maximize className="!pce-size-3.5" />
             </ToggleGroupItem>
-            <ToggleGroupItem className="size-[22px] rounded-sm p-0" value="100">
-              <Monitor className="!size-3.5" />
+            <ToggleGroupItem
+              className="pce-size-[22px] pce-rounded-sm pce-p-0"
+              value="100"
+            >
+              <Monitor className="!pce-size-3.5" />
             </ToggleGroupItem>
-            <ToggleGroupItem className="size-[22px] rounded-sm p-0" value="60">
-              <Tablet className="!size-3.5" />
+            <ToggleGroupItem
+              className="pce-size-[22px] pce-rounded-sm pce-p-0"
+              value="60"
+            >
+              <Tablet className="!pce-size-3.5" />
             </ToggleGroupItem>
-            <ToggleGroupItem className="size-[22px] rounded-sm p-0" value="30">
-              <Smartphone className="!size-3.5" />
+            <ToggleGroupItem
+              className="pce-size-[22px] pce-rounded-sm pce-p-0"
+              value="30"
+            >
+              <Smartphone className="!pce-size-3.5" />
             </ToggleGroupItem>
           </ToggleGroup>
         </div>

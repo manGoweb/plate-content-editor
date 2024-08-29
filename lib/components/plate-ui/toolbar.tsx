@@ -13,28 +13,28 @@ import { withTooltip } from './tooltip'
 
 export const Toolbar = withCn(
   ToolbarPrimitive.Root,
-  'relative flex select-none items-center gap-1 bg-background'
+  'pce-relative pce-flex pce-select-none pce-items-center pce-gap-1 pce-bg-white dark:pce-bg-slate-950'
 )
 
 export const ToolbarToggleGroup = withCn(
   ToolbarPrimitive.ToolbarToggleGroup,
-  'flex items-center'
+  'pce-flex pce-items-center'
 )
 
 export const ToolbarLink = withCn(
   ToolbarPrimitive.Link,
-  'font-medium underline underline-offset-4'
+  'pce-font-medium pce-underline pce-underline-offset-4'
 )
 
 export const ToolbarSeparator = withCn(
   ToolbarPrimitive.Separator,
-  'my-1 w-px shrink-0 bg-border'
+  'pce-my-1 pce-w-px pce-shrink-0 pce-bg-slate-200 dark:pce-bg-slate-800'
 )
 
 const toolbarButtonVariants = cva(
   cn(
-    'inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
-    '[&_svg:not([data-icon])]:size-5'
+    'pce-inline-flex pce-items-center pce-justify-center pce-rounded-md pce-text-sm pce-font-medium pce-ring-offset-white pce-transition-colors focus-visible:pce-outline-none focus-visible:pce-ring-2 focus-visible:pce-ring-slate-950 focus-visible:pce-ring-offset-2 disabled:pce-pointer-events-none disabled:pce-opacity-50 dark:pce-ring-offset-slate-950 dark:pce-focus-visible:ring-slate-300',
+    '[&_svg:not([data-icon])]:pce-size-5'
   ),
   {
     defaultVariants: {
@@ -43,15 +43,15 @@ const toolbarButtonVariants = cva(
     },
     variants: {
       size: {
-        default: 'h-10 px-3',
-        lg: 'h-11 px-5',
-        sm: 'h-9 px-2',
+        default: 'pce-h-10 pce-px-3',
+        lg: 'pce-h-11 pce-px-5',
+        sm: 'pce-h-9 pce-px-2',
       },
       variant: {
         default:
-          'bg-transparent hover:bg-muted hover:text-muted-foreground aria-checked:bg-accent aria-checked:text-accent-foreground',
+          'pce-bg-transparent hover:pce-bg-slate-100 hover:pce-text-slate-500 aria-checked:pce-bg-slate-100 aria-checked:pce-text-slate-900 dark:hover:pce-bg-slate-800 dark:hover:pce-text-slate-400 dark:aria-checked:pce-bg-slate-800 dark:aria-checked:pce-text-slate-50',
         outline:
-          'border border-input bg-transparent hover:bg-accent hover:text-accent-foreground',
+          'pce-border pce-border-slate-200 pce-bg-transparent hover:pce-bg-slate-100 hover:pce-text-slate-900 dark:pce-border-slate-800 dark:hover:pce-bg-slate-800 dark:hover:pce-text-slate-50',
       },
     },
   }
@@ -86,7 +86,7 @@ const ToolbarButton = withTooltip(
                 size,
                 variant,
               }),
-              isDropdown && 'my-1 justify-between pr-1',
+              isDropdown && 'pce-my-1 pce-justify-between pce-pr-1',
               className
             )}
             ref={ref}
@@ -95,9 +95,12 @@ const ToolbarButton = withTooltip(
           >
             {isDropdown ? (
               <>
-                <div className="flex flex-1">{children}</div>
+                <div className="pce-flex pce-flex-1">{children}</div>
                 <div>
-                  <Icons.arrowDown className="ml-0.5 size-4" data-icon />
+                  <Icons.arrowDown
+                    className="pce-ml-0.5 pce-size-4"
+                    data-icon
+                  />
                 </div>
               </>
             ) : (
@@ -112,7 +115,7 @@ const ToolbarButton = withTooltip(
               size,
               variant,
             }),
-            isDropdown && 'pr-1',
+            isDropdown && 'pce-pr-1',
             className
           )}
           ref={ref}
@@ -145,14 +148,16 @@ export const ToolbarGroup = withRef<
   if (!childArr || childArr.length === 0) return null
 
   return (
-    <div className={cn('flex', className)} ref={ref}>
+    <div className={cn('pce-flex', className)} ref={ref}>
       {!noSeparator && (
-        <div className="h-full py-1">
+        <div className="pce-h-full pce-py-1">
           <Separator orientation="vertical" />
         </div>
       )}
 
-      <div className="mx-1 flex items-center gap-1">{children}</div>
+      <div className="pce-mx-1 pce-flex pce-items-center pce-gap-1">
+        {children}
+      </div>
     </div>
   )
 })

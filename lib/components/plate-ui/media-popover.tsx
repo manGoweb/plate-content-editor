@@ -55,14 +55,14 @@ export function MediaPopover({ children, pluginKey }: MediaPopoverProps) {
       <PopoverAnchor>{children}</PopoverAnchor>
 
       <PopoverContent
-        className="w-auto p-1"
+        className="pce-w-auto pce-p-1"
         onOpenAutoFocus={(e) => e.preventDefault()}
       >
         {isEditing ? (
-          <div className="flex w-[330px] flex-col">
-            <div className="flex items-center">
-              <div className="flex items-center pl-3 text-muted-foreground">
-                <Icons.link className="size-4" />
+          <div className="pce-flex pce-w-[330px] pce-flex-col">
+            <div className="pce-flex pce-items-center">
+              <div className="pce-flex pce-items-center pce-pl-3 pce-text-slate-500 dark:pce-text-slate-400">
+                <Icons.link className="pce-size-4" />
               </div>
 
               <FloatingMediaPrimitive.UrlInput
@@ -75,7 +75,7 @@ export function MediaPopover({ children, pluginKey }: MediaPopoverProps) {
             </div>
           </div>
         ) : (
-          <div className="box-content flex h-9 items-center gap-1">
+          <div className="pce-box-content pce-flex pce-h-9 pce-items-center pce-gap-1">
             <FloatingMediaPrimitive.EditButton
               className={buttonVariants({ size: 'sm', variant: 'ghost' })}
             >
@@ -84,10 +84,10 @@ export function MediaPopover({ children, pluginKey }: MediaPopoverProps) {
 
             {/* <CaptionButton variant="ghost">Caption</CaptionButton> */}
 
-            <Separator className="my-1" orientation="vertical" />
+            <Separator className="pce-my-1" orientation="vertical" />
 
             <Button size="sms" variant="ghost" {...buttonProps}>
-              <Icons.delete className="size-4" />
+              <Icons.delete className="pce-size-4" />
             </Button>
           </div>
         )}

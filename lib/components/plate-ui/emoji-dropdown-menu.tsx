@@ -27,7 +27,7 @@ export function EmojiDropdownMenu({
     <EmojiToolbarDropdown
       control={
         <ToolbarButton isDropdown pressed={isOpen} tooltip="Emoji" {...props}>
-          <Icons.emoji />
+          <Icons.emoji className="pce-size-4" />
         </ToolbarButton>
       }
       isOpen={isOpen}

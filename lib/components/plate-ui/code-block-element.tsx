@@ -15,17 +15,17 @@ export const CodeBlockElement = withRef<typeof PlateElement>(
 
     return (
       <PlateElement
-        className={cn('relative py-1', state.className, className)}
+        className={cn('pce-relative pce-py-1', state.className, className)}
         ref={ref}
         {...props}
       >
-        <pre className="overflow-x-auto rounded-md bg-muted px-6 py-8 font-mono text-sm leading-[normal] [tab-size:2]">
+        <pre className="pce-overflow-x-auto pce-rounded-md pce-bg-slate-100 pce-px-6 pce-py-8 pce-font-mono pce-text-sm pce-leading-[normal] pce-[tab-size:2] dark:pce-bg-slate-800">
           <code>{children}</code>
         </pre>
 
         {state.syntax && (
           <div
-            className="absolute right-2 top-2 z-10 select-none"
+            className="pce-absolute pce-right-2 pce-top-2 pce-z-10 pce-select-none"
             contentEditable={false}
           >
             <CodeBlockCombobox />

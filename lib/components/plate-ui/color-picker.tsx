@@ -38,7 +38,7 @@ export const ColorPickerContent = withRef<
   ) => {
     return (
       <div
-        className={cn('flex flex-col gap-4 p-4', className)}
+        className={cn('pce-flex pce-flex-col pce-gap-4 pce-p-4', className)}
         ref={ref}
         {...props}
       >

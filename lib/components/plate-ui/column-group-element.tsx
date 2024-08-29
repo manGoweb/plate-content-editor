@@ -23,9 +23,11 @@ import { Separator } from './separator'
 export const ColumnGroupElement = withRef<typeof PlateElement>(
   ({ children, className, ...props }, ref) => {
     return (
-      <PlateElement className={cn(className, 'my-2')} ref={ref} {...props}>
+      <PlateElement className={cn(className, 'pce-my-2')} ref={ref} {...props}>
         <ColumnFloatingToolbar>
-          <div className={cn('flex size-full gap-4 rounded')}>{children}</div>
+          <div className={cn('pce-flex pce-size-full pce-gap-4 pce-rounded')}>
+            {children}
+          </div>
         </ColumnFloatingToolbar>
       </PlateElement>
     )
@@ -56,13 +58,12 @@ export function ColumnFloatingToolbar({ children }: React.PropsWithChildren) {
       <PopoverAnchor>{children}</PopoverAnchor>
       <PopoverContent
         align="center"
-        className="w-auto p-1"
+        className="pce-w-auto pce-p-1"
         onOpenAutoFocus={(e) => e.preventDefault()}
         side="top"
         sideOffset={10}
       >
-        {/* TODO */}
-        <div className="box-content flex h-9 items-center gap-1 [&_svg]:size-4 [&_svg]:text-muted-foreground">
+        <div className="pce-box-content pce-flex pce-h-9 pce-items-center pce-gap-1 [&_svg]:pce-size-4 [&_svg]:pce-text-slate-500 dark:[&_svg]:pce-text-slate-400">
           <Button onClick={setDoubleColumn} size="sms" variant="ghost">
             {/* <Icons.doubleColumn /> */}
           </Button>
@@ -83,7 +84,7 @@ export function ColumnFloatingToolbar({ children }: React.PropsWithChildren) {
             {/* <Icons.doubleSideDoubleColumn /> */}
           </Button>
 
-          <Separator className="my-1" orientation="vertical" />
+          <Separator className="pce-my-1" orientation="vertical" />
           <Button size="sms" variant="ghost" {...buttonProps}>
             <Icons.delete />
           </Button>

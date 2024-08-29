@@ -55,9 +55,9 @@ export function AlignDropdownMenu({ children, ...props }: DropdownMenuProps) {
         </ToolbarButton>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent align="start" className="min-w-0">
+      <DropdownMenuContent align="start" className="pce-min-w-0">
         <DropdownMenuRadioGroup
-          className="flex flex-col gap-0.5"
+          className="pce-flex pce-flex-col pce-gap-0.5"
           {...radioGroupProps}
         >
           {items.map(({ icon: Icon, value: itemValue }) => (

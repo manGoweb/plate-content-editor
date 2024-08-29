@@ -105,21 +105,21 @@ export function TurnIntoDropdownMenu(props: DropdownMenuProps) {
     <DropdownMenu modal={false} {...openState} {...props}>
       <DropdownMenuTrigger asChild>
         <ToolbarButton
-          className="lg:min-w-[130px]"
+          className="lg:pce-min-w-[130px]"
           isDropdown
           pressed={openState.open}
           tooltip="Turn into"
         >
-          <SelectedItemIcon className="size-5 lg:hidden" />
-          <span className="max-lg:hidden">{selectedItemLabel}</span>
+          <SelectedItemIcon className="pce-size-5 lg:pce-hidden" />
+          <span className="max-lg:pce-hidden">{selectedItemLabel}</span>
         </ToolbarButton>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent align="start" className="min-w-0">
+      <DropdownMenuContent align="start" className="pce-min-w-0">
         <DropdownMenuLabel>Turn into</DropdownMenuLabel>
 
         <DropdownMenuRadioGroup
-          className="flex flex-col gap-0.5"
+          className="pce-flex pce-flex-col pce-gap-0.5"
           onValueChange={(type) => {
             // if (type === 'ul' || type === 'ol') {
             //   if (settingsStore.get.checkedId(KEY_LIST_STYLE_TYPE)) {
@@ -141,11 +141,11 @@ export function TurnIntoDropdownMenu(props: DropdownMenuProps) {
         >
           {items.map(({ icon: Icon, label, value: itemValue }) => (
             <DropdownMenuRadioItem
-              className="min-w-[180px]"
+              className="pce-min-w-[180px]"
               key={itemValue}
               value={itemValue}
             >
-              <Icon className="mr-2 size-5" />
+              <Icon className="pce-mr-2 pce-size-5" />
               {label}
             </DropdownMenuRadioItem>
           ))}

@@ -8,7 +8,7 @@ import tailwindcss from 'tailwindcss'
 const contemberPackages = ['@contember/interface', '@contember/react-uploader']
 
 export default defineConfig({
-  base: "/plate-content-editor/",
+  base: '/plate-content-editor/',
   optimizeDeps: {
     exclude: contemberPackages,
   },

@@ -11,7 +11,7 @@ const ResizablePanelGroup = ({
 }: React.ComponentProps<typeof ResizablePrimitive.PanelGroup>) => (
   <ResizablePrimitive.PanelGroup
     className={cn(
-      'flex size-full data-[panel-group-direction=vertical]:flex-col',
+      'pce-flex pce-size-full data-[panel-group-direction=vertical]:pce-flex-col',
       className
     )}
     {...props}
@@ -29,14 +29,14 @@ const ResizableHandle = ({
 } & React.ComponentProps<typeof ResizablePrimitive.PanelResizeHandle>) => (
   <ResizablePrimitive.PanelResizeHandle
     className={cn(
-      'relative flex w-px items-center justify-center bg-border after:absolute after:inset-y-0 after:left-1/2 after:w-1 after:-translate-x-1/2 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-1 data-[panel-group-direction=vertical]:h-px data-[panel-group-direction=vertical]:w-full data-[panel-group-direction=vertical]:after:left-0 data-[panel-group-direction=vertical]:after:h-1 data-[panel-group-direction=vertical]:after:w-full data-[panel-group-direction=vertical]:after:-translate-y-1/2 data-[panel-group-direction=vertical]:after:translate-x-0 [&[data-panel-group-direction=vertical]>div]:rotate-90',
+      'pce-relative pce-flex pce-w-px pce-items-center pce-justify-center bg-border after:pce-absolute after:pce-inset-y-0 after:pce-left-1/2 after:pce-w-1 after:pce--translate-x-1/2 focus-visible:pce-outline-none focus-visible:pce-ring-1 focus-visible:ring-ring focus-visible:pce-ring-offset-1 data-[panel-group-direction=vertical]:pce-h-px data-[panel-group-direction=vertical]:pce-w-full data-[panel-group-direction=vertical]:after:pce-left-0 data-[panel-group-direction=vertical]:after:pce-h-1 data-[panel-group-direction=vertical]:after:pce-w-full data-[panel-group-direction=vertical]:after:pce--translate-y-1/2 data-[panel-group-direction=vertical]:after:pce-translate-x-0 [&[data-panel-group-direction=vertical]>div]:pce-rotate-90',
       className
     )}
     {...props}
   >
     {withHandle && (
-      <div className="z-10 flex h-4 w-3 items-center justify-center rounded-sm border bg-border">
-        <GripVertical className="size-2.5" />
+      <div className="pce-z-10 pce-flex pce-h-4 pce-w-3 pce-items-center pce-justify-center pce-rounded-sm pce-border bg-border">
+        <GripVertical className="pce-size-2.5" />
       </div>
     )}
   </ResizablePrimitive.PanelResizeHandle>

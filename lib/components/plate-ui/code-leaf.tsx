@@ -9,7 +9,7 @@ export const CodeLeaf = withRef<typeof PlateLeaf>(
       <PlateLeaf
         asChild
         className={cn(
-          'whitespace-pre-wrap rounded-md bg-muted px-[0.3em] py-[0.2em] font-mono text-sm',
+          'pce-whitespace-pre-wrap pce-rounded-md pce-bg-slate-100 pce-px-[0.3em] pce-py-[0.2em] pce-font-mono pce-text-sm dark:pce-bg-slate-800',
           className
         )}
         ref={ref}

@@ -15,20 +15,21 @@ export const TodoListElement = withRef<typeof PlateElement>(
 
     return (
       <PlateElement
-        className={cn('flex flex-row py-1', className)}
+        className={cn('pce-flex pce-flex-row pce-py-1', className)}
         ref={ref}
         {...props}
       >
         <div
-          className="mr-1.5 flex select-none items-center justify-center"
+          className="pce-mr-1.5 pce-flex pce-select-none pce-items-center pce-justify-center"
           contentEditable={false}
         >
           <Checkbox {...checkboxProps} />
         </div>
         <span
           className={cn(
-            'flex-1 focus:outline-none',
-            state.checked && 'text-muted-foreground line-through'
+            'pce-flex-1 focus:pce-outline-none',
+            state.checked &&
+              'pce-text-slate-500 pce-line-through dark:pce-text-slate-400'
           )}
           contentEditable={!state.readOnly}
           suppressContentEditableWarning

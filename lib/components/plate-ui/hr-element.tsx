@@ -11,12 +11,14 @@ export const HrElement = withRef<typeof PlateElement>(
 
     return (
       <PlateElement ref={ref} {...props}>
-        <div className="py-6" contentEditable={false}>
+        <div className="pce-py-6" contentEditable={false}>
           <hr
             {...nodeProps}
             className={cn(
-              'h-0.5 cursor-pointer rounded-sm border-none bg-muted bg-clip-content',
-              selected && focused && 'ring-2 ring-ring ring-offset-2',
+              'pce-h-0.5 pce-cursor-pointer pce-rounded-sm pce-border-none pce-bg-slate-100 pce-bg-clip-content dark:pce-bg-slate-800',
+              selected &&
+                focused &&
+                'pce-ring-2 pce-ring-slate-950 pce-ring-offset-2 dark:pce-ring-slate-300',
               className
             )}
           />

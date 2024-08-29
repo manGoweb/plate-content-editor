@@ -97,7 +97,7 @@ const items = [
         icon: Icons.hr,
       },
     ],
-    label: 'Basic blocks',
+    label: 'Basic pce-blocks',
   },
   {
     label: 'Media',
@@ -149,7 +149,7 @@ export function InsertDropdownMenu(props: DropdownMenuProps) {
 
       <DropdownMenuContent
         align="start"
-        className="bg-white flex max-h-[500px] min-w-0 flex-col gap-0.5 overflow-y-auto"
+        className="pce-bg-white pce-flex pce-max-h-[500px] pce-min-w-0 pce-flex-col pce-gap-0.5 pce-overflow-y-auto"
       >
         {items.map(({ items: nestedItems, label }, index) => (
           <React.Fragment key={label}>
@@ -159,7 +159,7 @@ export function InsertDropdownMenu(props: DropdownMenuProps) {
             {nestedItems.map(
               ({ icon: Icon, label: itemLabel, value: type }) => (
                 <DropdownMenuItem
-                  className="min-w-[180px]"
+                  className="pce-min-w-[180px]"
                   key={type}
                   onSelect={async () => {
                     switch (type) {
@@ -214,7 +214,7 @@ export function InsertDropdownMenu(props: DropdownMenuProps) {
                     focusEditor(editor)
                   }}
                 >
-                  <Icon className="mr-2 size-5" />
+                  <Icon className="pce-mr-2 pce-size-5" />
                   {itemLabel}
                 </DropdownMenuItem>
               )

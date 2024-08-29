@@ -37,7 +37,7 @@ const Button = memo(
     return (
       <button
         aria-label={emoji.skins[0].native}
-        className="group relative flex size-[36px] cursor-pointer items-center justify-center border-none bg-transparent text-2xl leading-none"
+        className="pce-group pce-relative pce-flex pce-size-9 pce-cursor-pointer pce-items-center pce-justify-center pce-border-none pce-bg-transparent pce-text-2xl pce-leading-none"
         data-index={index}
         onClick={() => onSelect(emoji)}
         onMouseEnter={() => onMouseOver(emoji)}
@@ -47,7 +47,7 @@ const Button = memo(
       >
         <div
           aria-hidden="true"
-          className="absolute inset-0 rounded-full bg-[rgba(0,0,0,0.05)] opacity-0 group-hover:opacity-100"
+          className="pce-absolute pce-inset-0 pce-rounded-full pce-opacity-0 group-hover:pce-opacity-100"
         />
         <span data-emoji-set="native" style={{ position: 'relative' }}>
           {emoji.skins[0].native}
@@ -60,7 +60,7 @@ Button.displayName = 'Button'
 
 const RowOfButtons = memo(
   ({ emojiLibrary, onMouseOver, onSelectEmoji, row }: RowOfButtonsProps) => (
-    <div className="flex" data-index={row.id} key={row.id}>
+    <div className="pce-flex" data-index={row.id} key={row.id}>
       {row.elements.map((emojiId, index) => (
         <Button
           emoji={emojiLibrary.getEmoji(emojiId)}
@@ -112,20 +112,20 @@ export function EmojiPickerContent({
             ref={section.root}
             style={{ width: getRowWidth }}
           >
-            <div className="sticky -top-px z-[1] bg-background/90 p-1 backdrop-blur-sm">
+            <div className="pce-sticky pce-top-px pce-z-[1] pce-bg-white/90 pce-p-1 pce-py-2 pce-text-sm pce-font-semibold pce-backdrop-blur-sm dark:pce-bg-slate-950/90">
               {i18n.categories[categoryId]}
             </div>
             <div
-              className="relative flex flex-wrap"
+              className="pce-relative pce-flex pce-flex-wrap"
               style={{ height: section.getRows().length * buttonSize.value }}
             >
               {isCategoryVisible(categoryId) &&
                 section
                   .getRows()
-                  .map((row: GridRow, index) => (
+                  .map((row: GridRow) => (
                     <RowOfButtons
                       emojiLibrary={emojiLibrary}
-                      key={index}
+                      key={row.id}
                       onMouseOver={onMouseOver}
                       onSelectEmoji={onSelectEmoji}
                       row={row}
@@ -148,10 +148,10 @@ export function EmojiPickerContent({
   const SearchList = useCallback(() => {
     return (
       <div data-id="search" style={{ width: getRowWidth }}>
-        <div className="sticky -top-px z-[1] bg-background/90 p-1 backdrop-blur-sm">
+        <div className="pce-sticky pce-top-px pce-z-[1] pce-bg-white/90 pce-p-1 pce-py-2 pce-font-semibold pce-backdrop-blur-sm dark:pce-bg-slate-950/90">
           {i18n.searchResult}
         </div>
-        <div className="relative flex flex-wrap">
+        <div className="pce-relative pce-flex pce-flex-wrap">
           {searchResult.map((emoji: Emoji, index: number) => (
             <Button
               emoji={emojiLibrary.getEmoji(emoji.id)}
@@ -176,17 +176,17 @@ export function EmojiPickerContent({
   return (
     <div
       className={cn(
-        'h-full min-h-[50%] overflow-y-auto overflow-x-hidden px-3',
-        '[&::-webkit-scrollbar]:w-4',
-        '[&::-webkit-scrollbar-button]:hidden [&::-webkit-scrollbar-button]:size-0',
-        ':hover:[&::-webkit-scrollbar-thumb]:bg-[#f3f4f6]',
-        '[&::-webkit-scrollbar-thumb]:min-h-[65px] [&::-webkit-scrollbar-thumb]:rounded-2xl [&::-webkit-scrollbar-thumb]:border-4 [&::-webkit-scrollbar-thumb]:border-white',
-        '[&::-webkit-scrollbar-track]:border-0'
+        'pce-h-full pce-min-h-[50%] pce-overflow-y-auto pce-overflow-x-hidden pce-px-3',
+        '[&::-webkit-scrollbar]:pce-w-4',
+        '[&::-webkit-scrollbar-button]:pce-hidden [&::-webkit-scrollbar-button]:pce-size-0',
+        ':hover:[&::-webkit-scrollbar-thumb]:pce-bg-[#f3f4f6]',
+        '[&::-webkit-scrollbar-thumb]:pce-min-h-[65px] [&::-webkit-scrollbar-thumb]:pce-rounded-2xl [&::-webkit-scrollbar-thumb]:pce-border-4 [&::-webkit-scrollbar-thumb]:pce-border-white',
+        '[&::-webkit-scrollbar-track]:pce-border-0'
       )}
       data-id="scroll"
       ref={refs.current.contentRoot}
     >
-      <div className="h-full" ref={refs.current.content}>
+      <div className="pce-h-full" ref={refs.current.content}>
         {isSearching ? SearchList() : EmojiList()}
       </div>
     </div>

@@ -52,6 +52,7 @@ import 'prismjs/components/prism-lua.js'
 import 'prismjs/components/prism-makefile.js'
 import 'prismjs/components/prism-markdown.js'
 import 'prismjs/components/prism-matlab.js'
+import 'prismjs/components/prism-mermaid.js'
 import 'prismjs/components/prism-objectivec.js'
 import 'prismjs/components/prism-perl.js'
 // import 'prismjs/components/prism-php.js';
@@ -110,6 +111,7 @@ const languages: { label: string; value: string }[] = [
   { label: 'Makefile', value: 'makefile' },
   { label: 'Markup', value: 'markup' },
   { label: 'MATLAB', value: 'matlab' },
+  { label: 'Mermaid', value: 'mermaid' },
   { label: 'Objective-C', value: 'objectivec' },
   { label: 'Perl', value: 'perl' },
   { label: 'PHP', value: 'php' },
@@ -143,7 +145,7 @@ export function CodeBlockCombobox() {
       <PopoverTrigger asChild>
         <Button
           aria-expanded={open}
-          className="h-5 justify-between px-1 text-xs"
+          className="pce-h-5 pce-justify-between pce-px-1 pce-text-xs"
           role="combobox"
           size="xs"
           variant="ghost"
@@ -152,10 +154,10 @@ export function CodeBlockCombobox() {
             ? languages.find((language) => language.value === state.value)
                 ?.label
             : 'Plain Text'}
-          <Icons.chevronsUpDown className="ml-2 size-4 shrink-0 opacity-50" />
+          <Icons.chevronsUpDown className="pce-ml-2 pce-size-4 pce-shrink-0 pce-opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
+      <PopoverContent className="pce-w-[200px] pce-p-0">
         <Command>
           <CommandInput placeholder="Search language..." />
           <CommandEmpty>No language found.</CommandEmpty>
@@ -163,7 +165,7 @@ export function CodeBlockCombobox() {
           <CommandList>
             {languages.map((language) => (
               <CommandItem
-                className="cursor-pointer"
+                className="pce-cursor-pointer"
                 key={language.value}
                 onSelect={(_value) => {
                   commandItemProps.onSelect(_value)
@@ -173,8 +175,10 @@ export function CodeBlockCombobox() {
               >
                 <Icons.check
                   className={cn(
-                    'mr-2 size-4',
-                    state.value === language.value ? 'opacity-100' : 'opacity-0'
+                    'pce-mr-2 pce-size-4',
+                    state.value === language.value
+                      ? 'pce-opacity-100'
+                      : 'pce-opacity-0'
                   )}
                 />
                 {language.label}

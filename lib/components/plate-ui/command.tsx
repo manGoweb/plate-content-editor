@@ -11,14 +11,14 @@ import { Dialog, DialogContent } from './dialog'
 
 export const Command = withCn(
   CommandPrimitive,
-  'flex size-full flex-col overflow-hidden rounded-md bg-popover text-popover-foreground'
+  'pce-flex pce-size-full pce-flex-col pce-overflow-hidden pce-rounded-md pce-bg-white pce-text-slate-950 dark:pce-bg-slate-950 dark:pce-text-slate-50'
 )
 
 export function CommandDialog({ children, ...props }: DialogProps) {
   return (
     <Dialog {...props}>
-      <DialogContent className="overflow-hidden p-0 shadow-lg">
-        <Command className="[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-group]]:px-2 [&_[cmdk-input-wrapper]_svg]:size-5 [&_[cmdk-input]]:h-12 [&_[cmdk-item]]:px-2 [&_[cmdk-item]]:py-3 [&_[cmdk-item]_svg]:size-5">
+      <DialogContent className="pce-overflow-hidden pce-p-0 pce-shadow-lg">
+        <Command className="[&_[cmdk-group-heading]]:pce-px-2 [&_[cmdk-group-heading]]:pce-font-medium [&_[cmdk-group-heading]]:pce-text-slate-500 [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pce-pt-0 [&_[cmdk-group]]:pce-px-2 [&_[cmdk-input-wrapper]_svg]:pce-size-5 [&_[cmdk-input]]:pce-h-12 [&_[cmdk-item]]:pce-px-2 [&_[cmdk-item]]:pce-py-3 [&_[cmdk-item]_svg]:pce-size-5 dark:[&_[cmdk-group-heading]]:pce-text-slate-400">
           {children}
         </Command>
       </DialogContent>
@@ -28,11 +28,14 @@ export function CommandDialog({ children, ...props }: DialogProps) {
 
 export const CommandInput = withRef<typeof CommandPrimitive.Input>(
   ({ className, ...props }, ref) => (
-    <div className="flex items-center border-b px-3" cmdk-input-wrapper="">
-      <Icons.search className="mr-2 size-4 shrink-0 opacity-50" />
+    <div
+      className="pce-flex pce-items-center pce-border-b pce-px-3"
+      cmdk-input-wrapper=""
+    >
+      <Icons.search className="pce-mr-2 pce-size-4 pce-shrink-0 pce-opacity-50" />
       <CommandPrimitive.Input
         className={cn(
-          'flex h-11 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50',
+          'pce-flex pce-h-11 pce-w-full pce-rounded-md pce-bg-transparent pce-py-3 pce-text-sm pce-outline-none placeholder:pce-text-slate-500 disabled:pce-cursor-not-allowed disabled:pce-opacity-50 dark:placeholder:pce-text-slate-400',
           className
         )}
         ref={ref}
@@ -44,30 +47,30 @@ export const CommandInput = withRef<typeof CommandPrimitive.Input>(
 
 export const CommandList = withCn(
   CommandPrimitive.List,
-  'max-h-[500px] overflow-y-auto overflow-x-hidden'
+  'pce-max-h-[500px] pce-overflow-y-auto pce-overflow-x-hidden'
 )
 
 export const CommandEmpty = withCn(
   CommandPrimitive.Empty,
-  'py-6 text-center text-sm'
+  'pce-py-6 pce-text-center pce-text-sm'
 )
 
 export const CommandGroup = withCn(
   CommandPrimitive.Group,
-  'overflow-hidden p-1 text-foreground [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground'
+  'pce-overflow-hidden pce-p-1 pce-text-slate-950 [&_[cmdk-group-heading]]:pce-px-2 [&_[cmdk-group-heading]]:pce-py-1.5 [&_[cmdk-group-heading]]:pce-text-xs [&_[cmdk-group-heading]]:pce-font-medium [&_[cmdk-group-heading]]:pce-text-slate-500 dark:pce-text-slate-50 dark:[&_[cmdk-group-heading]]:pce-text-slate-400'
 )
 
 export const CommandSeparator = withCn(
   CommandPrimitive.Separator,
-  '-mx-1 h-px bg-border'
+  'pce-mx-1 pce-h-px pce-bg-slate-200 dark:pce-bg-slate-800'
 )
 
 export const CommandItem = withCn(
   CommandPrimitive.Item,
-  'relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[disabled=true]:pointer-events-none data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground data-[disabled=true]:opacity-50'
+  'pce-relative pce-flex pce-cursor-default pce-select-none pce-items-center pce-rounded-sm pce-px-2 pce-py-1.5 pce-text-sm pce-outline-none data-[disabled=true]:pce-pointer-events-none data-[selected=true]:pce-bg-slate-100 data-[selected=true]:pce-text-slate-900 data-[disabled=true]:pce-opacity-50 dark:data-[selected=true]:pce-bg-slate-800 dark:data-[selected=true]:pce-text-slate-50'
 )
 
 export const CommandShortcut = withCn(
   createPrimitiveElement('span'),
-  'ml-auto text-xs tracking-widest text-muted-foreground'
+  'pce-ml-auto pce-text-xs pce-tracking-widest pce-text-slate-500 dark:pce-text-slate-400'
 )

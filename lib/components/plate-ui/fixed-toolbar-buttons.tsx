@@ -34,9 +34,9 @@ export function FixedToolbarButtons(props: PropsWithChildren) {
   const readOnly = useEditorReadOnly()
 
   return (
-    <div className="w-full overflow-hidden">
+    <div className="pce-w-full pce-overflow-hidden">
       <div
-        className="flex flex-wrap"
+        className="pce-flex pce-flex-wrap"
         style={{
           transform: 'translateX(calc(-1px))',
         }}
@@ -113,7 +113,7 @@ export function FixedToolbarButtons(props: PropsWithChildren) {
           </>
         )}
 
-        <div className="grow" />
+        <div className="pce-grow" />
 
         <ToolbarGroup noSeparator>
           <ModeDropdownMenu />

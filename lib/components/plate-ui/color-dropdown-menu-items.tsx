@@ -38,8 +38,8 @@ export function ColorDropdownMenuItem({
           isMenu: true,
           variant: 'outline',
         }),
-        'size-6 border border-solid border-muted p-0',
-        !isBrightColor && 'border-transparent text-white',
+        'pce-size-6 pce-border pce-border-slate-200 pce-border-solid  pce-p-0 dark:pce-border-slate-800',
+        !isBrightColor && 'pce-border-transparent pce-text-white',
         className
       )}
       onSelect={(e) => {
@@ -78,7 +78,10 @@ export function ColorDropdownMenuItems({
 }: ColorDropdownMenuItemsProps) {
   return (
     <div
-      className={cn('grid grid-cols-[repeat(10,1fr)] gap-1', className)}
+      className={cn(
+        'pce-grid pce-grid-cols-[repeat(10,1fr)] pce-gap-1',
+        className
+      )}
       {...props}
     >
       {colors.map(({ isBrightColor, name, value }) => (

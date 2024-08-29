@@ -11,7 +11,7 @@ export const LinkElement = withRef<typeof PlateElement>(
       <PlateElement
         asChild
         className={cn(
-          'font-medium text-primary underline decoration-primary underline-offset-4',
+          'pce-font-medium pce-text-slate-900 pce-underline pce-decoration-primary pce-underline-offset-4 dark:pce-text-slate-50',
           className
         )}
         ref={ref}

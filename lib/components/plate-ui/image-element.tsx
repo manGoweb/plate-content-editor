@@ -6,13 +6,11 @@ import { ResizableProvider, useResizableStore } from '@udecode/plate-resizable'
 //import { Caption, CaptionTextarea } from './caption'
 import { MediaPopover } from './media-popover'
 import { Resizable, ResizeHandle, mediaResizeHandleVariants } from './resizable'
-import { useReadOnly } from 'slate-react'
 
 export const ImageElement = withHOC(
   ResizableProvider,
   withRef<typeof PlateElement>(
     ({ children, className, nodeProps, ...props }, ref) => {
-      const isReadOnly = useReadOnly()
       const { align = 'center', focused, readOnly, selected } = useMediaState()
 
       const width = useResizableStore().get.width()
@@ -20,11 +18,14 @@ export const ImageElement = withHOC(
       return (
         <MediaPopover pluginKey={ELEMENT_IMAGE}>
           <PlateElement
-            className={cn('py-2.5', className)}
+            className={cn('pce-py-2.5', className)}
             ref={ref}
             {...props}
           >
-            <figure className="group relative m-0" contentEditable={false}>
+            <figure
+              className="pce-group pce-relative pce-m-0"
+              contentEditable={false}
+            >
               <Resizable
                 align={align}
                 options={{
@@ -32,29 +33,27 @@ export const ImageElement = withHOC(
                   readOnly,
                 }}
               >
-                {!isReadOnly && (
-                  <ResizeHandle
-                    className={mediaResizeHandleVariants({ direction: 'left' })}
-                    options={{ direction: 'left' }}
-                  />
-                )}
+                <ResizeHandle
+                  className={mediaResizeHandleVariants({ direction: 'left' })}
+                  options={{ direction: 'left' }}
+                />
                 <Image
                   alt=""
                   className={cn(
-                    'block w-full max-w-full cursor-pointer object-cover px-0',
-                    'rounded-sm',
-                    focused && selected && 'ring-2 ring-ring ring-offset-2'
+                    'pce-block pce-w-full pce-max-w-full pce-cursor-pointer pce-object-cover pce-px-0',
+                    'pce-rounded-sm',
+                    focused &&
+                      selected &&
+                      'pce-ring-2 pce-ring-slate-950 pce-ring-offset-2 dark:pce-ring-slate-300'
                   )}
                   {...nodeProps}
                 />
-                {!isReadOnly && (
-                  <ResizeHandle
-                    className={mediaResizeHandleVariants({
-                      direction: 'right',
-                    })}
-                    options={{ direction: 'right' }}
-                  />
-                )}
+                <ResizeHandle
+                  className={mediaResizeHandleVariants({
+                    direction: 'right',
+                  })}
+                  options={{ direction: 'right' }}
+                />
               </Resizable>
 
               {/* <Caption align={align} style={{ width }}>

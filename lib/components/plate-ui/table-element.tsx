@@ -52,7 +52,7 @@ export const TableBordersDropdownMenuContent = withRef<
   return (
     <DropdownMenuContent
       align="start"
-      className={cn('min-w-[220px]')}
+      className={cn('pce-min-w-[220px]')}
       ref={ref}
       side="right"
       sideOffset={0}
@@ -133,7 +133,7 @@ export const TableFloatingToolbar = withRef<typeof PopoverContent>(
         onClick={() => mergeTableCells(editor)}
         variant="ghost"
       >
-        {/* <Icons.combine className="mr-2 size-4" /> */}
+        <Icons.combine className="pce-mr-2 pce-size-4" />
         Merge
       </Button>
     )
@@ -145,7 +145,7 @@ export const TableFloatingToolbar = withRef<typeof PopoverContent>(
         onClick={() => unmergeTableCells(editor)}
         variant="ghost"
       >
-        {/* <Icons.ungroup className="mr-2 size-4" /> */}
+        <Icons.ungroup className="pce-mr-2 pce-size-4" />
         Unmerge
       </Button>
     )
@@ -155,7 +155,7 @@ export const TableFloatingToolbar = withRef<typeof PopoverContent>(
         <DropdownMenu modal={false}>
           <DropdownMenuTrigger asChild>
             <Button isMenu variant="ghost">
-              <Icons.borderAll className="mr-2 size-4" />
+              <Icons.borderAll className="pce-mr-2 pce-size-4" />
               Borders
             </Button>
           </DropdownMenuTrigger>
@@ -166,7 +166,7 @@ export const TableFloatingToolbar = withRef<typeof PopoverContent>(
         </DropdownMenu>
 
         <Button contentEditable={false} isMenu variant="ghost" {...buttonProps}>
-          <Icons.delete className="mr-2 size-4" />
+          <Icons.delete className="pce-mr-2 pce-size-4" />
           Delete
         </Button>
       </>
@@ -179,7 +179,7 @@ export const TableFloatingToolbar = withRef<typeof PopoverContent>(
           <PopoverContent
             className={cn(
               popoverVariants(),
-              'flex w-[220px] flex-col gap-1 p-1'
+              'pce-flex pce-w-[220px] pce-flex-col pce-gap-1 pce-p-1'
             )}
             onOpenAutoFocus={(e) => e.preventDefault()}
             ref={ref}
@@ -208,8 +208,8 @@ export const TableElement = withHOC(
           <PlateElement
             asChild
             className={cn(
-              'my-4 ml-px mr-0 table h-px w-full table-fixed border-collapse',
-              isSelectingCell && '[&_*::selection]:bg-none',
+              'pce-my-4 pce-ml-px pce-mr-0 pce-table pce-h-px pce-w-full pce-table-fixed pce-border-collapse',
+              isSelectingCell && '[&_*::selection]:pce-bg-none',
               className
             )}
             ref={ref}
@@ -229,7 +229,7 @@ export const TableElement = withHOC(
                 ))}
               </colgroup>
 
-              <tbody className="min-w-full">{children}</tbody>
+              <tbody className="pce-min-w-full">{children}</tbody>
             </table>
           </PlateElement>
         </div>

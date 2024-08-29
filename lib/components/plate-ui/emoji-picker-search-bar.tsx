@@ -13,12 +13,12 @@ export function EmojiPickerSearchBar({
   setSearch,
 }: EmojiPickerSearchBarProps) {
   return (
-    <div className="flex items-center px-2">
-      <div className="relative flex grow">
+    <div className="pce-flex pce-items-center pce-px-2">
+      <div className="pce-relative pce-flex pce-grow pce-items-center">
         <input
           aria-label="Search"
           autoComplete="off"
-          className="block w-full appearance-none rounded-lg border-0 bg-gray-100 px-8 py-2 outline-none"
+          className="pce-block pce-w-full pce-appearance-none pce-rounded-full pce-border-0 pce-bg-slate-100 pce-px-10 pce-py-2 pce-text-sm pce-outline-none placeholder:pce-text-slate-500 focus-visible:pce-outline-none dark:pce-bg-slate-800 dark:placeholder:pce-text-slate-400"
           onChange={(event) => setSearch(event.target.value)}
           placeholder={i18n.search}
           type="text"

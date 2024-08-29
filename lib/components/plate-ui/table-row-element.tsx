@@ -10,7 +10,7 @@ export const TableRowElement = withRef<
   return (
     <PlateElement
       asChild
-      className={cn('h-full', hideBorder && 'border-none')}
+      className={cn('pce-h-full', hideBorder && 'pce-border-none')}
       ref={ref}
       {...props}
     >

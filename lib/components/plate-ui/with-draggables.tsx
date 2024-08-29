@@ -15,8 +15,16 @@ import {
   ELEMENT_H5,
   ELEMENT_H6,
 } from '@udecode/plate-heading'
+import { ELEMENT_COLUMN_GROUP } from '@udecode/plate-layout'
 import { ELEMENT_OL, ELEMENT_UL } from '@udecode/plate-list'
+import {
+  ELEMENT_IMAGE,
+  ELEMENT_MEDIA_EMBED,
+  ELEMENT_PLACEHOLDER,
+} from '@udecode/plate-media'
 import { ELEMENT_PARAGRAPH } from '@udecode/plate-paragraph'
+import { ELEMENT_TABLE } from '@udecode/plate-table'
+import { ELEMENT_TOGGLE } from '@udecode/plate-toggle'
 
 import { Draggable, type DraggableProps } from './draggable'
 
@@ -39,8 +47,8 @@ export const withDraggables = (components: any) => {
     {
       draggableProps: {
         classNames: {
-          blockToolbarWrapper: 'h-[1.3em]',
-          gutterLeft: 'px-0 pb-1 text-[1.875em]',
+          blockToolbarWrapper: 'pce-h-[1.3em]',
+          gutterLeft: 'pce-px-0 pce-pb-1 pce-text-[1.875em]',
         },
       },
       key: ELEMENT_H1,
@@ -48,8 +56,8 @@ export const withDraggables = (components: any) => {
     {
       draggableProps: {
         classNames: {
-          blockToolbarWrapper: 'h-[1.3em]',
-          gutterLeft: 'px-0 pb-1 text-[1.5em]',
+          blockToolbarWrapper: 'pce-h-[1.3em]',
+          gutterLeft: 'pce-px-0 pce-pb-1 pce-text-[1.5em]',
         },
       },
       key: ELEMENT_H2,
@@ -57,8 +65,8 @@ export const withDraggables = (components: any) => {
     {
       draggableProps: {
         classNames: {
-          blockToolbarWrapper: 'h-[1.3em]',
-          gutterLeft: 'pt-[2px] px-0 pb-1 text-[1.25em]',
+          blockToolbarWrapper: 'pce-h-[1.3em]',
+          gutterLeft: 'pce-pt-[2px] pce-px-0 pce-pb-1 pce-text-[1.25em]',
         },
       },
       key: ELEMENT_H3,
@@ -66,8 +74,8 @@ export const withDraggables = (components: any) => {
     {
       draggableProps: {
         classNames: {
-          blockToolbarWrapper: 'h-[1.3em]',
-          gutterLeft: 'pt-[3px] px-0 pb-0 text-[1.1em]',
+          blockToolbarWrapper: 'pce-h-[1.3em]',
+          gutterLeft: 'pce-pt-[3px] pce-px-0 pce-pb-0 pce-text-[1.1em]',
         },
       },
       keys: [ELEMENT_H4, ELEMENT_H5],
@@ -75,7 +83,7 @@ export const withDraggables = (components: any) => {
     {
       draggableProps: {
         classNames: {
-          gutterLeft: 'pt-[3px] px-0 pb-0',
+          gutterLeft: 'pce-pt-[3px] pce-px-0 pce-pb-0',
         },
       },
       keys: [ELEMENT_PARAGRAPH],
@@ -83,7 +91,7 @@ export const withDraggables = (components: any) => {
     {
       draggableProps: {
         classNames: {
-          gutterLeft: 'px-0 pb-0',
+          gutterLeft: 'pce-px-0 pce-pb-0',
         },
       },
       keys: [ELEMENT_H6, ELEMENT_UL, ELEMENT_OL],
@@ -91,7 +99,7 @@ export const withDraggables = (components: any) => {
     {
       draggableProps: {
         classNames: {
-          gutterLeft: 'px-0 pb-0',
+          gutterLeft: 'pce-px-0 pce-pb-0',
         },
       },
       key: ELEMENT_BLOCKQUOTE,
@@ -99,10 +107,58 @@ export const withDraggables = (components: any) => {
     {
       draggableProps: {
         classNames: {
-          gutterLeft: 'pt-8 px-0 pb-0',
+          gutterLeft: 'pce-pt-6 pce-px-0 pce-pb-0',
         },
       },
       key: ELEMENT_CODE_BLOCK,
+    },
+    {
+      draggableProps: {
+        classNames: {
+          gutterLeft: 'pce-pt-0 pce-px-0 pce-pb-0',
+        },
+      },
+      key: ELEMENT_IMAGE,
+    },
+    {
+      draggableProps: {
+        classNames: {
+          gutterLeft: 'pce-pt-0 pce-px-0 pce-pb-0',
+        },
+      },
+      key: ELEMENT_MEDIA_EMBED,
+    },
+    {
+      draggableProps: {
+        classNames: {
+          gutterLeft: 'pce-pt-0 pce-px-0 pce-pb-0',
+        },
+      },
+      key: ELEMENT_TOGGLE,
+    },
+    {
+      draggableProps: {
+        classNames: {
+          gutterLeft: 'pce-pt-0 pce-px-0 pce-pb-0',
+        },
+      },
+      key: ELEMENT_COLUMN_GROUP,
+    },
+    {
+      draggableProps: {
+        classNames: {
+          gutterLeft: 'pce-pt-3 pce-px-0 pce-pb-0',
+        },
+      },
+      key: ELEMENT_PLACEHOLDER,
+    },
+    {
+      draggableProps: {
+        classNames: {
+          gutterLeft: 'pce-pt-3 pce-px-0 pce-pb-0',
+        },
+      },
+      key: ELEMENT_TABLE,
     },
   ])
 }

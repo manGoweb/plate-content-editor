@@ -17,7 +17,7 @@ export function FloatingToolbarButtons() {
   const readOnly = useEditorReadOnly()
 
   return (
-    <>
+    <div className="pce-flex">
       {!readOnly && (
         <>
           <TurnIntoDropdownMenu />
@@ -47,6 +47,6 @@ export function FloatingToolbarButtons() {
       )}
 
       <MoreDropdownMenu />
-    </>
+    </div>
   )
 }

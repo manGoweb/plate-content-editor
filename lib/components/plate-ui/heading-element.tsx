@@ -2,19 +2,19 @@ import { withRef, withVariants } from '@udecode/cn'
 import { PlateElement } from '@udecode/plate-common'
 import { cva } from 'class-variance-authority'
 
-const headingVariants = cva('', {
+const headingVariants = cva('pce-', {
   variants: {
     isFirstBlock: {
-      false: '',
-      true: 'mt-0',
+      false: 'pce-',
+      true: 'pce-mt-0',
     },
     variant: {
-      h1: 'mb-1 mt-[2em] font-heading text-4xl font-bold',
-      h2: 'mb-px mt-[1.4em] font-heading text-2xl font-semibold tracking-tight',
-      h3: 'mb-px mt-[1em] font-heading text-xl font-semibold tracking-tight',
-      h4: 'mt-[0.75em] font-heading text-lg font-semibold tracking-tight',
-      h5: 'mt-[0.75em] text-lg font-semibold tracking-tight',
-      h6: 'mt-[0.75em] text-base font-semibold tracking-tight',
+      h1: 'pce-mb-1 pce-mt-[2em] pce-font-heading pce-text-4xl pce-font-bold',
+      h2: 'pce-mb-px pce-mt-[1.4em] pce-font-heading pce-text-2xl pce-font-semibold pce-tracking-tight',
+      h3: 'pce-mb-px pce-mt-[1em] pce-font-heading pce-text-xl pce-font-semibold pce-tracking-tight',
+      h4: 'pce-mt-[0.75em] pce-font-heading pce-text-lg pce-font-semibold pce-tracking-tight',
+      h5: 'pce-mt-[0.75em] pce-text-lg pce-font-semibold pce-tracking-tight',
+      h6: 'pce-mt-[0.75em] pce-text-base pce-font-semibold pce-tracking-tight',
     },
   },
 })

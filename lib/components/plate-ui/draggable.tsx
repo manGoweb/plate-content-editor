@@ -13,7 +13,6 @@ import {
   useDraggable,
   useDraggableState,
 } from '@udecode/plate-dnd'
-import { blockSelectionActions } from '@udecode/plate-selection'
 
 import { Icons } from '@/components/icons'
 
@@ -23,6 +22,7 @@ import {
   TooltipPortal,
   TooltipTrigger,
 } from './tooltip'
+import { blockSelectionActions } from '@udecode/plate-selection'
 
 export interface DraggableProps
   extends PlateElementProps,
@@ -38,22 +38,22 @@ export interface DraggableProps
 
       /**
        * Block toolbar wrapper in the gutter left. It has the height of a line
-       * of the block.
+       * of the pce-block.
        */
       blockToolbarWrapper: string
 
       blockWrapper: string
 
-      /** Button to dnd the block, in the block toolbar. */
+      /** Button to dnd the pce-block, in the pce-block toolbar. */
       dragHandle: string
 
       /** Icon of the drag button, in the drag icon. */
       dragIcon: string
 
-      /** Show a dropline above or below the block when dragging a block. */
+      /** Show a dropline above or below the pce-block when dragging a pce-block. */
       dropLine: string
 
-      /** Gutter at the left side of the editor. It has the height of the block */
+      /** Gutter at the left side of the editor. It has the height of the pce-block */
       gutterLeft: string
     }> {
   /**
@@ -77,14 +77,14 @@ const DragHandle = () => {
     <Tooltip>
       <TooltipTrigger type="button">
         <Icons.dragHandle
-          className="size-4 text-muted-foreground"
+          className="pce-size-4 pce-text-black"
           onClick={(event) => {
             event.stopPropagation()
             event.preventDefault()
 
             // if (element.id) {
-            //   blockSelectionActions.addSelectedRow(element.id as string);
-            //   blockContextMenuActions.show(editor.id, event as any);
+            //   pce-blockSelectionActions.addSelectedRow(element.id as string);
+            //   pce-blockContextMenuActions.show(editor.id, event as any);
             // }
           }}
           onMouseDown={() => {
@@ -116,9 +116,9 @@ export const Draggable = withRef<'div', DraggableProps>(
     return (
       <div
         className={cn(
-          'relative',
-          isDragging && 'opacity-50',
-          'group',
+          'pce-relative',
+          isDragging && 'pce-opacity-50',
+          'pce-group',
           className
         )}
         ref={ref}
@@ -126,20 +126,25 @@ export const Draggable = withRef<'div', DraggableProps>(
       >
         <div
           className={cn(
-            'pointer-events-none absolute -top-px z-50 flex h-full -translate-x-full cursor-text opacity-0 group-hover:opacity-100',
+            'pce-pointer-events-none pce-absolute pce--top-px pce-z-50 pce-flex pce-h-full pce--translate-x-full pce-cursor-text pce-opacity-0 group-hover:pce-opacity-100',
             classNames.gutterLeft
           )}
           {...gutterLeftProps}
         >
-          <div className={cn('flex h-[1.5em]', classNames.blockToolbarWrapper)}>
+          <div
+            className={cn(
+              'pce-flex pce-h-[1.5em]',
+              classNames.blockToolbarWrapper
+            )}
+          >
             <div
               className={cn(
-                'pointer-events-auto mr-1 flex items-center',
+                'pce-pointer-events-auto pce-mr-1 pce-flex pce-items-center',
                 classNames.blockToolbar
               )}
             >
               <div
-                className="size-4"
+                className="pce-size-4"
                 data-key={element.id as string}
                 ref={handleRef}
               >
@@ -155,10 +160,10 @@ export const Draggable = withRef<'div', DraggableProps>(
           {!!dropLine && (
             <div
               className={cn(
-                'absolute inset-x-0 h-0.5 opacity-100',
+                'pce-absolute pce-inset-x-0 pce-h-0.5 pce-opacity-100',
                 'bg-ring',
-                dropLine === 'top' && '-top-px',
-                dropLine === 'bottom' && '-bottom-px',
+                dropLine === 'top' && 'pce--top-px',
+                dropLine === 'bottom' && 'pce--bottom-px',
                 classNames.dropLine
               )}
               {...droplineProps}

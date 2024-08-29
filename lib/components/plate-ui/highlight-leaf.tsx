@@ -5,7 +5,10 @@ export const HighlightLeaf = withRef<typeof PlateLeaf>(
   ({ children, className, ...props }, ref) => (
     <PlateLeaf
       asChild
-      className={cn('bg-primary/20 text-inherit dark:bg-primary/40', className)}
+      className={cn(
+        'pce-bg-slate-900/20 pce-text-inherit  dark:pce-bg-slate-50/20 dark:dark:pce-bg-slate-50/40',
+        className
+      )}
       ref={ref}
       {...props}
     >

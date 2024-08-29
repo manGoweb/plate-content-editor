@@ -9,11 +9,11 @@ import { cva } from 'class-variance-authority'
 
 const editorVariants = cva(
   cn(
-    'relative overflow-x-auto whitespace-pre-wrap break-words',
-    'min-h-[80px] w-full rounded-md bg-background px-6 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none',
-    '[&_[data-slate-placeholder]]:text-muted-foreground [&_[data-slate-placeholder]]:!opacity-100',
-    '[&_[data-slate-placeholder]]:top-[auto_!important]',
-    '[&_strong]:font-bold'
+    'pce-relative pce-overflow-x-auto pce-whitespace-pre-wrap pce-break-words',
+    'pce-min-h-[80px] pce-w-full pce-rounded-md pce-bg-white pce-px-6 pce-py-2 pce-text-sm pce-ring-offset-white placeholder:pce-text-slate-500 focus-visible:pce-outline-none dark:pce-bg-slate-950 dark:pce-ring-offset-slate-950 dark:placeholder:pce-text-slate-400',
+    '[&_[data-slate-placeholder]]:pce-text-slate-500 [&_[data-slate-placeholder]]:!pce-opacity-100 dark:[&_[data-slate-placeholder]]:pce-text-slate-400',
+    '[&_[data-slate-placeholder]]:pce-top-[auto_!important]',
+    '[&_strong]:pce-font-bold'
   ),
   {
     defaultVariants: {
@@ -23,22 +23,22 @@ const editorVariants = cva(
     },
     variants: {
       disabled: {
-        true: 'cursor-not-allowed opacity-50',
+        true: 'pce-cursor-not-allowed pce-opacity-50',
       },
       focusRing: {
-        false: '',
-        true: 'focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
+        false: 'pce-',
+        true: 'focus-visible:pce-ring-2 focus-visible:pce-ring-slate-950 focus-visible:pce-ring-offset-2 dark:focus-visible:pce-ring-slate-300',
       },
       focused: {
-        true: 'ring-2 ring-ring ring-offset-2',
+        true: 'pce-ring-2 pce-ring-slate-950 pce-ring-offset-2 dark:pce-ring-slate-300',
       },
       size: {
-        md: 'text-base',
-        sm: 'text-sm',
+        md: 'pce-text-base',
+        sm: 'pce-text-sm',
       },
       variant: {
-        ghost: '',
-        outline: 'border border-input',
+        ghost: 'pce-',
+        outline: 'pce-border pce-border-slate-200 dark:pce-border-slate-800',
       },
     },
   }
@@ -62,7 +62,7 @@ const Editor = React.forwardRef<HTMLDivElement, EditorProps>(
     ref
   ) => {
     return (
-      <div className="relative w-full" ref={ref}>
+      <div className="pce-relative pce-w-full" ref={ref}>
         <PlateContent
           aria-disabled={disabled}
           className={cn(
@@ -73,7 +73,6 @@ const Editor = React.forwardRef<HTMLDivElement, EditorProps>(
               size,
               variant,
             }),
-            readOnly && 'bg-transparent border-0 rounded-none',
             className
           )}
           disableDefaultStyles

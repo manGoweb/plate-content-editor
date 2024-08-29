@@ -13,13 +13,13 @@ export type PickAnEmojiPreviewProps = NoEmojiPreviewProps
 
 function EmojiPreview({ emoji }: EmojiPreviewProps) {
   return (
-    <div className="flex items-center border-t border-gray-100 p-2">
-      <div className="flex items-center justify-center text-3xl">
+    <div className="pce-flex pce-h-20 pce-items-center pce-border-t pce-border-slate-100 pce-p-2 dark:pce-border-slate-800">
+      <div className="pce-flex pce-items-center pce-justify-center pce-text-2xl">
         {emoji?.skins[0].native}
       </div>
-      <div className="overflow-hidden pl-2">
-        <div className="truncate text-sm text-gray-600">{emoji?.name}</div>
-        <div className="truncate text-xs text-muted-foreground">{`:${emoji?.id}:`}</div>
+      <div className="pce-overflow-hidden pce-pl-2">
+        <div className="pce-truncate pce-text-sm">{emoji?.name}</div>
+        <div className="pce-truncate pce-text-xs">{`:${emoji?.id}:`}</div>
       </div>
     </div>
   )
@@ -27,13 +27,15 @@ function EmojiPreview({ emoji }: EmojiPreviewProps) {
 
 function NoEmoji({ i18n }: NoEmojiPreviewProps) {
   return (
-    <div className="flex items-center border-t border-gray-100 p-2">
-      <div className="flex items-center justify-center text-3xl">😢</div>
-      <div className="overflow-hidden pl-2">
-        <div className="truncate text-sm text-gray-600">
+    <div className="pce-flex pce-h-20 pce-items-center pce-border-t pce-border-slate-100 pce-p-2 dark:pce-border-slate-800">
+      <div className="pce-flex pce-items-center pce-justify-center pce-text-2xl">
+        😢
+      </div>
+      <div className="pce-overflow-hidden pce-pl-2">
+        <div className="pce-truncate pce-text-sm pce-font-semibold pce-text-slate-900 dark:pce-text-slate-50">
           {i18n.searchNoResultsTitle}
         </div>
-        <div className="truncate text-xs text-muted-foreground">
+        <div className="pce-truncate pce-text-xs">
           {i18n.searchNoResultsSubtitle}
         </div>
       </div>
@@ -43,10 +45,12 @@ function NoEmoji({ i18n }: NoEmojiPreviewProps) {
 
 function PickAnEmoji({ i18n }: PickAnEmojiPreviewProps) {
   return (
-    <div className="flex items-center border-t border-gray-100 p-2">
-      <div className="flex items-center justify-center text-3xl">☝️</div>
-      <div className="overflow-hidden pl-2">
-        <div className="truncate text-lg text-muted-foreground">
+    <div className="pce-flex pce-h-20 pce-items-center pce-border-t pce-border-slate-100 pce-p-2 dark:pce-border-slate-800">
+      <div className="pce-flex pce-items-center pce-justify-center pce-text-2xl">
+        ☝️
+      </div>
+      <div className="pce-overflow-hidden pce-pl-2">
+        <div className="pce-truncate pce-text-sm pce-font-semibold">
           {i18n.pick}
         </div>
       </div>

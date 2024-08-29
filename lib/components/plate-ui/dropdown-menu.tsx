@@ -34,27 +34,27 @@ export const DropdownMenuSubTrigger = withRef<
 >(({ children, className, inset, ...props }, ref) => (
   <DropdownMenuPrimitive.SubTrigger
     className={cn(
-      'flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent data-[state=open]:bg-accent',
-      'data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
-      inset && 'pl-8',
+      'pce-flex pce-cursor-default pce-select-none pce-items-center pce-rounded-sm pce-px-2 pce-py-1.5 pce-text-sm pce-outline-none focus:pce-bg-slate-100 data-[state=open]:pce-bg-slate-100 dark:focus:pce-bg-slate-800 dark:data-[state=open]:pce-bg-slate-800',
+      'data-[disabled]:pce-pointer-events-none data-[disabled]:pce-opacity-50',
+      inset && 'pce-pl-8',
       className
     )}
     ref={ref}
     {...props}
   >
     {children}
-    <Icons.chevronRight className="ml-auto size-4" />
+    <Icons.chevronRight className="pce-ml-auto pce-size-4" />
   </DropdownMenuPrimitive.SubTrigger>
 ))
 
 export const DropdownMenuSubContent = withCn(
   DropdownMenuPrimitive.SubContent,
-  'z-50 min-w-32 overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2'
+  'pce-z-50 pce-min-w-32 pce-overflow-hidden pce-rounded-md pce-border pce-border-slate-200 pce-bg-white pce-p-1 pce-text-slate-950 pce-shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 dark:pce-border-slate-800 dark:pce-bg-slate-950 dark:pce-text-slate-50'
 )
 
 const DropdownMenuContentVariants = withProps(DropdownMenuPrimitive.Content, {
   className: cn(
-    'z-50 min-w-32 overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2'
+    'pce-z-50 min-w-32 pce-overflow-hidden pce-rounded-md pce-border pce-border-slate-200 pce-bg-white pce-p-1 pce-text-slate-950 pce-shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 dark:pce-border-slate-800 dark:pce-bg-slate-950 dark:pce-text-slate-50'
   ),
   sideOffset: 4,
 })
@@ -69,13 +69,13 @@ export const DropdownMenuContent = withRef<
 
 const menuItemVariants = cva(
   cn(
-    'relative flex h-9 cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors',
-    'focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50'
+    'pce-relative pce-flex pce-h-9 pce-cursor-pointer pce-select-none pce-items-center pce-rounded-sm pce-px-2 pce-py-1.5 pce-text-sm pce-outline-none pce-transition-colors',
+    'focus:pce-bg-slate-100 focus:pce-text-slate-900 data-[disabled]:pce-pointer-events-none data-[disabled]:pce-opacity-50 dark:pce-focus:bg-slate-800 dark:focus:pce-text-slate-50'
   ),
   {
     variants: {
       inset: {
-        true: 'pl-8',
+        true: 'pce-pl-8',
       },
     },
   }
@@ -92,16 +92,16 @@ export const DropdownMenuCheckboxItem = withRef<
 >(({ children, className, ...props }, ref) => (
   <DropdownMenuPrimitive.CheckboxItem
     className={cn(
-      'relative flex select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
-      'cursor-pointer',
+      'pce-relative pce-flex pce-select-none pce-items-center pce-rounded-sm pce-py-1.5 pce-pl-8 pce-pr-2 pce-text-sm pce-outline-none pce-transition-colors focus:pce-bg-slate-100 focus:pce-text-slate-900 data-[disabled]:pce-pointer-events-none data-[disabled]:pce-opacity-50 dark:focus:pce-bg-slate-800 dark:focus:pce-text-slate-50',
+      'pce-cursor-pointer',
       className
     )}
     ref={ref}
     {...props}
   >
-    <span className="absolute left-2 flex size-3.5 items-center justify-center">
+    <span className="pce-absolute pce-left-2 pce-flex pce-size-3.5 pce-items-center pce-justify-center">
       <DropdownMenuPrimitive.ItemIndicator>
-        <Icons.check className="size-4" />
+        <Icons.check className="pce-size-4" />
       </DropdownMenuPrimitive.ItemIndicator>
     </span>
     {children}
@@ -116,17 +116,17 @@ export const DropdownMenuRadioItem = withRef<
 >(({ children, className, hideIcon, ...props }, ref) => (
   <DropdownMenuPrimitive.RadioItem
     className={cn(
-      'relative flex select-none items-center rounded-sm pl-8 pr-2 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
-      'h-9 cursor-pointer px-2 data-[state=checked]:bg-accent data-[state=checked]:text-accent-foreground',
+      'pce-relative pce-flex pce-select-none pce-items-center pce-rounded-sm pce-pl-8 pce-pr-2 pce-text-sm pce-outline-none pce-transition-colors focus:pce-bg-slate-100 focus:pce-text-slate-900 data-[disabled]:pce-pointer-events-none data-[disabled]:pce-opacity-50 dark:focus:pce-bg-slate-800 dark:focus:pce-text-slate-50',
+      'pce-h-9 pce-cursor-pointer pce-px-2 data-[state=checked]:pce-bg-slate-100 data-[state=checked]:pce-text-slate-900 dark:data-[state=checked]:pce-bg-slate-800 dark:data-[state=checked]:pce-text-slate-50',
       className
     )}
     ref={ref}
     {...props}
   >
     {!hideIcon && (
-      <span className="absolute right-2 flex size-3.5 items-center justify-center">
+      <span className="pce-absolute pce-right-2 pce-flex pce-size-3.5 pce-items-center pce-justify-center">
         <DropdownMenuPrimitive.ItemIndicator>
-          <Icons.check className="size-4" />
+          <Icons.check className="pce-size-4" />
         </DropdownMenuPrimitive.ItemIndicator>
       </span>
     )}
@@ -135,11 +135,11 @@ export const DropdownMenuRadioItem = withRef<
 ))
 
 const dropdownMenuLabelVariants = cva(
-  cn('select-none px-2 py-1.5 text-sm font-semibold'),
+  cn('pce-select-none pce-px-2 pce-py-1.5 pce-text-sm pce-font-semibold'),
   {
     variants: {
       inset: {
-        true: 'pl-8',
+        true: 'pce-pl-8',
       },
     },
   }
@@ -153,12 +153,12 @@ export const DropdownMenuLabel = withVariants(
 
 export const DropdownMenuSeparator = withCn(
   DropdownMenuPrimitive.Separator,
-  '-mx-1 my-1 h-px bg-muted'
+  'pce-mx-1 pce-my-1 pce-h-px pce-bg-slate-100 dark:pce-bg-slate-800'
 )
 
 export const DropdownMenuShortcut = withCn(
   createPrimitiveElement('span'),
-  'ml-auto text-xs tracking-widest opacity-60'
+  'pce-ml-auto pce-text-xs pce-tracking-widest pce-opacity-60'
 )
 
 export const useOpenState = () => {

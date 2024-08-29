@@ -28,31 +28,31 @@ export function MoreDropdownMenu(props: DropdownMenuProps) {
 
       <DropdownMenuContent
         align="start"
-        className="flex max-h-[500px] min-w-[180px] flex-col gap-0.5 overflow-y-auto"
+        className="pce-flex pce-max-h-[500px] pce-min-w-[180px] pce-flex-col pce-gap-0.5 pce-overflow-y-auto"
       >
         <DropdownMenuItem
           onSelect={() => {
             toggleMark(editor, {
-              clear: MARK_SUPERSCRIPT,
-              key: MARK_SUBSCRIPT,
+              clear: [MARK_SUBSCRIPT, MARK_SUPERSCRIPT],
+              key: MARK_SUPERSCRIPT,
             })
             focusEditor(editor)
           }}
         >
-          <Icons.superscript className="mr-2 size-5" />
+          <Icons.superscript className="pce-mr-2 pce-size-5" />
           Superscript
           {/* (⌘+,) */}
         </DropdownMenuItem>
         <DropdownMenuItem
           onSelect={() => {
             toggleMark(editor, {
-              clear: MARK_SUBSCRIPT,
-              key: MARK_SUPERSCRIPT,
+              clear: [MARK_SUPERSCRIPT, MARK_SUBSCRIPT],
+              key: MARK_SUBSCRIPT,
             })
             focusEditor(editor)
           }}
         >
-          <Icons.subscript className="mr-2 size-5" />
+          <Icons.subscript className="pce-mr-2 pce-size-5" />
           Subscript
           {/* (⌘+.) */}
         </DropdownMenuItem>

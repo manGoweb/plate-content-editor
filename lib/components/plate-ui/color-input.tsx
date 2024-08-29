@@ -11,7 +11,7 @@ export const ColorInput = withRef<'input'>(
     const { childProps, inputRef } = useColorInput()
 
     return (
-      <div className="flex flex-col items-center">
+      <div className="pce-flex pce-flex-col pce-items-center">
         {React.Children.map(children, (child) => {
           if (!child) return child
 
@@ -19,7 +19,10 @@ export const ColorInput = withRef<'input'>(
         })}
 
         <input
-          className={cn('size-0 overflow-hidden border-0 p-0', className)}
+          className={cn(
+            'pce-size-0 pce-overflow-hidden pce-border-0 pce-p-0',
+            className
+          )}
           ref={useComposedRef(ref, inputRef)}
           type="color"
           value={value}

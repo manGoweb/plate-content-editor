@@ -11,7 +11,7 @@ export const PopoverTrigger = PopoverPrimitive.Trigger
 export const PopoverAnchor = PopoverPrimitive.Anchor
 
 export const popoverVariants = cva(
-  'w-72 rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 print:hidden'
+  'pce-w-72 pce-rounded-md pce-border pce-border-slate-200 pce-bg-white pce-p-4 pce-text-slate-950 pce-shadow-md pce-outline-none data-[state=open]:pce-animate-in data-[state=closed]:pce-animate-out data-[state=closed]:pce-fade-out-0 data-[state=open]:pce-fade-in-0 data-[state=closed]:pce-zoom-out-95 data-[state=open]:pce-zoom-in-95 data-[side=bottom]:pce-slide-in-from-top-2 data-[side=left]:pce-slide-in-from-right-2 data-[side=right]:pce-slide-in-from-left-2 data-[side=top]:pce-slide-in-from-bottom-2 print:pce-hidden dark:pce-border-slate-800 dark:pce-bg-slate-950 dark:pce-text-slate-50'
 )
 
 export const PopoverContent = withRef<typeof PopoverPrimitive.Content>(

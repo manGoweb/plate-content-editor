@@ -12,13 +12,13 @@ export const ToggleElement = withRef<typeof PlateElement>(
 
     return (
       <PlateElement asChild ref={ref} {...props}>
-        <div className="relative pl-6">
+        <div className="pce-relative pce-pl-6">
           <span
-            className="absolute -left-0.5 -top-0.5 flex cursor-pointer select-none items-center justify-center rounded-sm p-px transition-colors hover:bg-slate-200"
+            className="pce-absolute pce-left-0.5 pce-top-0.5 pce-flex pce-cursor-pointer pce-select-none pce-items-center pce-justify-center pce-rounded-sm pce-p-px pce-transition-colors hover:pce-bg-slate-200"
             contentEditable={false}
             {...buttonProps}
           >
-            {open ? <Icons.chevronsUpDown /> : <Icons.chevronRight />}
+            {open ? <Icons.chevronDown /> : <Icons.chevronRight />}
           </span>
           {children}
         </div>

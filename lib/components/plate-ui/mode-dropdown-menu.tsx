@@ -32,14 +32,14 @@ export function ModeDropdownMenu(props: DropdownMenuProps) {
   const item: any = {
     editing: (
       <>
-        <Icons.editing className="mr-2 size-5" />
-        <span className="hidden lg:inline">Editing</span>
+        <Icons.editing className="pce-mr-2 pce-size-5" />
+        <span className="pce-hidden lg:pce-inline">Editing</span>
       </>
     ),
     viewing: (
       <>
-        <Icons.viewing className="mr-2 size-5" />
-        <span className="hidden lg:inline">Viewing</span>
+        <Icons.viewing className="pce-mr-2 pce-size-5" />
+        <span className="pce-hidden lg:pce-inline">Viewing</span>
       </>
     ),
   }
@@ -48,7 +48,7 @@ export function ModeDropdownMenu(props: DropdownMenuProps) {
     <DropdownMenu modal={false} {...openState} {...props}>
       <DropdownMenuTrigger asChild>
         <ToolbarButton
-          className="min-w-[auto] lg:min-w-[130px]"
+          className="pce-min-w-[auto] lg:pce-min-w-[130px]"
           isDropdown
           pressed={openState.open}
           tooltip="Editing mode"
@@ -57,9 +57,9 @@ export function ModeDropdownMenu(props: DropdownMenuProps) {
         </ToolbarButton>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent align="start" className="min-w-[180px]">
+      <DropdownMenuContent align="start" className="pce-min-w-[180px]">
         <DropdownMenuRadioGroup
-          className="flex flex-col gap-0.5"
+          className="pce-flex pce-flex-col pce-gap-0.5"
           onValueChange={(newValue) => {
             if (newValue !== 'viewing') {
               setReadOnly(false)

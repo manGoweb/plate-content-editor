@@ -48,22 +48,28 @@ export const TableCellElement = withRef<
     <PlateElement
       asChild
       className={cn(
-        'relative h-full overflow-visible border-none bg-background p-0',
-        hideBorder && 'before:border-none',
-        element.background ? 'bg-[--cellBackground]' : 'bg-background',
+        'pce-relative pce-h-full pce-overflow-visible pce-border-none pce-bg-white pce-p-0 dark:pce-bg-slate-950',
+        hideBorder && 'before:pce-border-none',
+        element.background
+          ? 'pce-bg-[--cellBackground]'
+          : 'pce-bg-white dark:pce-bg-slate-950',
         !hideBorder &&
           cn(
-            isHeader && 'text-left [&_>_*]:m-0',
-            'before:size-full',
-            selected && 'before:z-10 before:bg-muted',
-            "before:absolute before:box-border before:select-none before:content-['']",
+            isHeader && 'pce-text-left [&_>_*]:pce-m-0',
+            'before:pce-size-full',
+            selected &&
+              'before:pce-z-10 before:pce-bg-slate-100 dark:pce-before:bg-slate-800',
+            'before:pce-absolute before:pce-box-border before:pce-select-none before:content-[]',
             borders &&
               cn(
                 borders.bottom?.size &&
-                  `before:border-b before:border-b-border`,
-                borders.right?.size && `before:border-r before:border-r-border`,
-                borders.left?.size && `before:border-l before:border-l-border`,
-                borders.top?.size && `before:border-t before:border-t-border`
+                  `before:pce-border-b before:border-b-border`,
+                borders.right?.size &&
+                  `before:pce-border-r before:border-r-border`,
+                borders.left?.size &&
+                  `before:pce-border-l before:border-l-border`,
+                borders.top?.size &&
+                  `before:pce-border-t before:border-t-border`
               )
           ),
         className
@@ -80,7 +86,7 @@ export const TableCellElement = withRef<
     >
       <Cell>
         <div
-          className="relative z-20 box-border h-full px-3 py-2"
+          className="pce-relative pce-z-20 pce-box-border pce-h-full pce-px-3 pce-py-2"
           style={{
             minHeight: rowSize,
           }}
@@ -90,7 +96,7 @@ export const TableCellElement = withRef<
 
         {!isSelectingCell && (
           <div
-            className="group absolute top-0 size-full select-none"
+            className="pce-group pce-absolute pce-top-0 pce-size-full pce-select-none"
             contentEditable={false}
             suppressContentEditableWarning={true}
           >
@@ -98,32 +104,32 @@ export const TableCellElement = withRef<
               <>
                 <ResizeHandle
                   {...rightProps}
-                  className="-top-3 right-[-5px] w-[10px]"
+                  className="pce-top-3 pce-right-[-5px] pce-w-[10px]"
                 />
                 <ResizeHandle
                   {...bottomProps}
-                  className="bottom-[-5px] h-[10px]"
+                  className="pce-bottom-[-5px] pce-h-[10px]"
                 />
                 {!hiddenLeft && (
                   <ResizeHandle
                     {...leftProps}
-                    className="-top-3 left-[-5px] w-[10px]"
+                    className="pce-top-3 pce-left-[-5px] pce-w-[10px]"
                   />
                 )}
 
                 {hovered && (
                   <div
                     className={cn(
-                      'absolute -top-3 z-30 h-[calc(100%_+_12px)] w-1 bg-ring',
-                      'right-[-1.5px]'
+                      'pce-absolute pce-top-3 pce-z-30 pce-h-[calc(100%_+_12px)] pce-w-1 pce-bg-slate-950 dark:pce-bg-slate-300',
+                      'pce-right-[-1.5px]'
                     )}
                   />
                 )}
                 {hoveredLeft && (
                   <div
                     className={cn(
-                      'absolute -top-3 z-30 h-[calc(100%_+_12px)] w-1 bg-ring',
-                      'left-[-1.5px]'
+                      'pce-absolute pce-top-3 pce-z-30 pce-h-[calc(100%_+_12px)] pce-w-1 pce-bg-slate-950 dark:pce-bg-slate-300',
+                      'pce-left-[-1.5px]'
                     )}
                   />
                 )}

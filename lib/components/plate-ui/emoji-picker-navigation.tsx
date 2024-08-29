@@ -6,6 +6,8 @@ import type {
 
 import { cn } from '@udecode/cn'
 
+import { Button } from './button'
+
 export type EmojiPickerNavigationProps = {
   onClick: (id: EmojiCategoryList) => void
 } & Pick<
@@ -39,33 +41,33 @@ export function EmojiPickerNavigation({
 
   return (
     <nav
-      className="mb-2.5 border-0 border-b border-solid border-b-gray-100 p-3"
+      className="pce-mb-2.5 pce-border-0 pce-border-b pce-border-solid pce-border-b-border pce-p-3"
       id="emoji-nav"
     >
-      <div className="relative flex">
+      <div className="pce-relative pce-flex pce-items-center">
         {emojiLibrary
           .getGrid()
           .sections()
           .map(({ id }) => (
-            <button
+            <Button
               aria-label={i18n.categories[id]}
               className={cn(
-                'flex grow cursor-pointer items-center justify-center border-none bg-transparent fill-current text-sm text-gray-500 hover:text-gray-800',
+                'pce-size-6 pce-grow pce-fill-current pce-text-slate-500 hover:pce-bg-transparent hover:pce-text-slate-950 dark:pce-text-slate-400 dark:hover:pce-text-slate-50',
                 id === focusedCategory &&
-                  'pointer-events-none fill-current text-blue-600'
+                  'pce-pointer-events-none pce-fill-current pce-text-slate-900 dark:pce-text-slate-50'
               )}
               key={id}
               onClick={() => onClick(id)}
+              size="icon"
               title={i18n.categories[id]}
               type="button"
+              variant="ghost"
             >
-              <span style={{ height: '20px', width: '20px' }}>
-                {icons.categories[id].outline}
-              </span>
-            </button>
+              <span className="pce-size-5">{icons.categories[id].outline}</span>
+            </Button>
           ))}
         <div
-          className="absolute -bottom-3 left-0 h-[3px] w-full rounded-t bg-blue-600 opacity-100 transition-transform duration-200"
+          className="pce-absolute pce-bottom-3 pce-left-0 pce-h-0.5 pce-w-full pce-rounded-t-lg pce-bg-slate-900 pce-opacity-100 pce-transition-transform pce-duration-200 dark:pce-bg-slate-50"
           style={{
             transform: `translateX(${position}%)`,
             visibility: `${focusedCategory ? 'visible' : 'hidden'}`,
