@@ -1,8 +1,8 @@
+import type { EmojiCategoryList } from '@udecode/plate-emoji'
 import type {
-  EmojiCategoryList,
   IEmojiFloatingLibrary,
   UseEmojiPickerType,
-} from '@udecode/plate-emoji'
+} from '@udecode/plate-emoji/react'
 
 import { cn } from '@udecode/cn'
 
@@ -67,7 +67,7 @@ export function EmojiPickerNavigation({
             </Button>
           ))}
         <div
-          className="pce-absolute pce-bottom-3 pce-left-0 pce-h-0.5 pce-w-full pce-rounded-t-lg pce-bg-slate-900 pce-opacity-100 pce-transition-transform pce-duration-200 dark:pce-bg-slate-50"
+          className="pce-absolute  -pce-bottom-3 pce-h-0.5 pce-w-full pce-rounded-t-lg pce-bg-slate-900 pce-opacity-100 pce-transition-transform pce-duration-200 dark:pce-bg-slate-50"
           style={{
             transform: `translateX(${position}%)`,
             visibility: `${focusedCategory ? 'visible' : 'hidden'}`,

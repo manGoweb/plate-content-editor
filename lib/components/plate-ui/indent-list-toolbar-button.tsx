@@ -1,9 +1,9 @@
 import { withRef } from '@udecode/cn'
+import { ListStyleType } from '@udecode/plate-indent-list'
 import {
-  ListStyleType,
   useIndentListToolbarButton,
   useIndentListToolbarButtonState,
-} from '@udecode/plate-indent-list'
+} from '@udecode/plate-indent-list/react'
 
 import { Icons } from '@/components/icons'
 

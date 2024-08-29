@@ -1,16 +1,14 @@
 import { forwardRef, useRef, type ChangeEvent } from 'react'
-import {
-  insertImage,
-  type ELEMENT_IMAGE,
-  type ELEMENT_MEDIA_EMBED,
-} from '@udecode/plate-media'
-import { useEditorRef } from '@udecode/plate-common'
+import type { ImagePlugin, MediaEmbedPlugin } from '@udecode/plate-media/react'
+
+import { useEditorRef } from '@udecode/plate-common/react'
 import { useS3Client } from '@contember/react-uploader'
 import { ToolbarButton } from '@/components/plate-ui/toolbar'
 import { Icons } from '@/components/icons'
+import { insertImage } from '@udecode/plate-media'
 
 interface ContemberImageToolBarButtonProps {
-  nodeType?: typeof ELEMENT_IMAGE | typeof ELEMENT_MEDIA_EMBED
+  nodeType?: typeof ImagePlugin.key | typeof MediaEmbedPlugin.key
 }
 
 export const ContemberImageToolBarButton: React.FC<

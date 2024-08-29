@@ -54,7 +54,7 @@ export const DropdownMenuSubContent = withCn(
 
 const DropdownMenuContentVariants = withProps(DropdownMenuPrimitive.Content, {
   className: cn(
-    'pce-z-50 min-w-32 pce-overflow-hidden pce-rounded-md pce-border pce-border-slate-200 pce-bg-white pce-p-1 pce-text-slate-950 pce-shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 dark:pce-border-slate-800 dark:pce-bg-slate-950 dark:pce-text-slate-50'
+    'pce-z-50 pce-min-w-32 pce-overflow-hidden pce-rounded-md pce-border pce-border-slate-200 pce-bg-white pce-p-1 pce-text-slate-950 pce-shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 dark:pce-border-slate-800 dark:pce-bg-slate-950 dark:pce-text-slate-50'
   ),
   sideOffset: 4,
 })

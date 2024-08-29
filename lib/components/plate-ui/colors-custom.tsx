@@ -1,6 +1,9 @@
 'use client'
 
-import { useColorsCustom, useColorsCustomState } from '@udecode/plate-font'
+import {
+  useColorsCustom,
+  useColorsCustomState,
+} from '@udecode/plate-font/react'
 
 import type { TColor } from './color-dropdown-menu'
 

@@ -21,7 +21,7 @@ export function WrapperToolbar({
       className={cn(
         'pce-flex pce-flex-col pce-items-center pce-gap-4 sm:pce-flex-row',
         'pce-absolute pce-right-0 pce-z-[60]',
-        !fullScreen && 'pce--top-4 pce--translate-y-full',
+        !fullScreen && '-pce-top-4 -pce-translate-y-full',
         fullScreen && 'pce-bottom-4'
       )}
     >

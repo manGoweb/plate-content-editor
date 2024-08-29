@@ -10,6 +10,6 @@ createRoot(rootEl, {}).render(
       marginInline: '60px',
     }}
   >
-    <PlateEditor />
+    <PlateEditor value={[]} />
   </div>
 )

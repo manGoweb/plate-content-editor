@@ -2,13 +2,9 @@ import LiteYouTubeEmbed from 'react-lite-youtube-embed'
 import { Tweet } from 'react-tweet'
 
 import { cn, withRef } from '@udecode/cn'
-import { PlateElement, withHOC } from '@udecode/plate-common'
-import {
-  ELEMENT_MEDIA_EMBED,
-  parseTwitterUrl,
-  parseVideoUrl,
-  useMediaState,
-} from '@udecode/plate-media'
+import { PlateElement, withHOC } from '@udecode/plate-common/react'
+import { parseTwitterUrl, parseVideoUrl } from '@udecode/plate-media'
+import { MediaEmbedPlugin, useMediaState } from '@udecode/plate-media/react'
 import { ResizableProvider, useResizableStore } from '@udecode/plate-resizable'
 
 //import { Caption, CaptionTextarea } from './caption'
@@ -30,11 +26,11 @@ export const MediaEmbedElement = withHOC(
     } = useMediaState({
       urlParsers: [parseTwitterUrl, parseVideoUrl],
     })
-    const width = useResizableStore().get.width()
+    const _width = useResizableStore().get.width()
     const provider = embed?.provider
 
     return (
-      <MediaPopover pluginKey={ELEMENT_MEDIA_EMBED}>
+      <MediaPopover plugin={MediaEmbedPlugin}>
         <PlateElement
           className={cn('pce-relative pce-py-2.5', className)}
           ref={ref}

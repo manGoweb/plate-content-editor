@@ -75,7 +75,7 @@ export function Wrapper({
 
               <ResizableHandle
                 className={cn(
-                  'pce-relative pce-hidden pce-w-3 pce-bg-transparent pce-p-0 after:pce-absolute after:pce-right-0 after:pce-top-1/2 after:pce-h-8 after:pce-w-[6px] after:pce--translate-x-px after:pce--translate-y-1/2 after:pce-rounded-full after:bg-border after:pce-transition-all after:hover:pce-h-10 sm:pce-block'
+                  'pce-relative pce-hidden pce-w-3 pce-bg-transparent pce-p-0 after:pce-absolute after:pce-right-0 after:pce-top-1/2 after:pce-h-8 after:pce-w-[6px] after:pce-translate-x-px after:pce-translate-y-1/2 after:pce-rounded-full after:bg-border after:pce-transition-all after:hover:pce-h-10 sm:pce-block'
                 )}
               />
               <ResizablePanel defaultSize={0} minSize={0} />

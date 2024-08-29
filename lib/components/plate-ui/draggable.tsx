@@ -1,18 +1,19 @@
 'use client'
 
-import type {
-  ClassNames,
-  PlateElementProps,
-  TEditor,
-} from '@udecode/plate-common'
+import type { ClassNames, TEditor } from '@udecode/plate-common'
 import type { DropTargetMonitor } from 'react-dnd'
 
 import { cn, withRef } from '@udecode/cn'
+import {
+  type PlateElementProps,
+  useEditorRef,
+} from '@udecode/plate-common/react'
 import {
   type DragItemNode,
   useDraggable,
   useDraggableState,
 } from '@udecode/plate-dnd'
+import { BlockSelectionPlugin } from '@udecode/plate-selection/react'
 
 import { Icons } from '@/components/icons'
 
@@ -22,7 +23,6 @@ import {
   TooltipPortal,
   TooltipTrigger,
 } from './tooltip'
-import { blockSelectionActions } from '@udecode/plate-selection'
 
 export interface DraggableProps
   extends PlateElementProps,
@@ -73,22 +73,26 @@ export interface DraggableProps
 }
 
 const DragHandle = () => {
+  const editor = useEditorRef()
+
   return (
     <Tooltip>
       <TooltipTrigger type="button">
         <Icons.dragHandle
-          className="pce-size-4 pce-text-black"
+          className="pce-size-4 pce-text-slate-500 dark:pce-text-slate-400"
           onClick={(event) => {
             event.stopPropagation()
             event.preventDefault()
 
             // if (element.id) {
-            //   pce-blockSelectionActions.addSelectedRow(element.id as string);
-            //   pce-blockContextMenuActions.show(editor.id, event as any);
+            //   editor.getApi(BlockSelectionPlugin).blockSelection.addSelectedRow(element.id as string);
+            //   api.blockContextMenu.show(editor.id, event as any);
             // }
           }}
           onMouseDown={() => {
-            blockSelectionActions.resetSelectedIds()
+            editor
+              .getApi(BlockSelectionPlugin)
+              .blockSelection.resetSelectedIds()
           }}
         />
       </TooltipTrigger>
@@ -126,7 +130,7 @@ export const Draggable = withRef<'div', DraggableProps>(
       >
         <div
           className={cn(
-            'pce-pointer-events-none pce-absolute pce--top-px pce-z-50 pce-flex pce-h-full pce--translate-x-full pce-cursor-text pce-opacity-0 group-hover:pce-opacity-100',
+            'pce-pointer-events-none pce-absolute -pce-top-px pce-z-50 pce-flex pce-h-full -pce-translate-x-full pce-cursor-text pce-opacity-0 group-hover:pce-opacity-100',
             classNames.gutterLeft
           )}
           {...gutterLeftProps}
@@ -162,8 +166,8 @@ export const Draggable = withRef<'div', DraggableProps>(
               className={cn(
                 'pce-absolute pce-inset-x-0 pce-h-0.5 pce-opacity-100',
                 'bg-ring',
-                dropLine === 'top' && 'pce--top-px',
-                dropLine === 'bottom' && 'pce--bottom-px',
+                dropLine === 'top' && '-pce-top-px',
+                dropLine === 'bottom' && '-pce-bottom-px',
                 classNames.dropLine
               )}
               {...droplineProps}

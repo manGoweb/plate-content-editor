@@ -1,16 +1,16 @@
 import React from 'react'
 
-import type { PlateContentProps } from '@udecode/plate-common'
+import type { PlateContentProps } from '@udecode/plate-common/react'
 import type { VariantProps } from 'class-variance-authority'
 
 import { cn } from '@udecode/cn'
-import { PlateContent } from '@udecode/plate-common'
+import { PlateContent } from '@udecode/plate-common/react'
 import { cva } from 'class-variance-authority'
 
 const editorVariants = cva(
   cn(
     'pce-relative pce-overflow-x-auto pce-whitespace-pre-wrap pce-break-words',
-    'pce-min-h-[80px] pce-w-full pce-rounded-md pce-bg-white pce-px-6 pce-py-2 pce-text-sm pce-ring-offset-white placeholder:pce-text-slate-500 focus-visible:pce-outline-none dark:pce-bg-slate-950 dark:pce-ring-offset-slate-950 dark:placeholder:pce-text-slate-400',
+    'pce-min-h-[80px] pce-w-full pce-rounded-md pce-bg-white pce-px-6 pce-py-2 pce-text-sm pce-ring-offset-white placeholder:pce-text-slate-500 focus-visible:pce-outline-none dark:pce-bg-slate-950 dark:pce-ring-offset-slate-950 dark:pce-placeholder:text-slate-400',
     '[&_[data-slate-placeholder]]:pce-text-slate-500 [&_[data-slate-placeholder]]:!pce-opacity-100 dark:[&_[data-slate-placeholder]]:pce-text-slate-400',
     '[&_[data-slate-placeholder]]:pce-top-[auto_!important]',
     '[&_strong]:pce-font-bold'
@@ -75,6 +75,7 @@ const Editor = React.forwardRef<HTMLDivElement, EditorProps>(
             }),
             className
           )}
+          data-plate-selectable
           disableDefaultStyles
           readOnly={disabled ?? readOnly}
           {...props}

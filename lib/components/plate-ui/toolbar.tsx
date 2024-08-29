@@ -33,7 +33,7 @@ export const ToolbarSeparator = withCn(
 
 const toolbarButtonVariants = cva(
   cn(
-    'pce-inline-flex pce-items-center pce-justify-center pce-rounded-md pce-text-sm pce-font-medium pce-ring-offset-white pce-transition-colors focus-visible:pce-outline-none focus-visible:pce-ring-2 focus-visible:pce-ring-slate-950 focus-visible:pce-ring-offset-2 disabled:pce-pointer-events-none disabled:pce-opacity-50 dark:pce-ring-offset-slate-950 dark:pce-focus-visible:ring-slate-300',
+    'pce-inline-flex pce-items-center pce-justify-center pce-rounded-md pce-text-sm pce-font-medium pce-ring-offset-white pce-transition-colors focus-visible:pce-outline-none focus-visible:pce-ring-2 focus-visible:pce-ring-slate-950 focus-visible:pce-ring-offset-2 disabled:pce-pointer-events-none disabled:pce-opacity-50 dark:pce-ring-offset-slate-950 dark:focus-visible:pce-ring-slate-300',
     '[&_svg:not([data-icon])]:pce-size-5'
   ),
   {

@@ -1,13 +1,13 @@
 import type React from 'react'
 
 import { cn, withProps, withRef } from '@udecode/cn'
-import { PlateElement } from '@udecode/plate-common'
+import { PlateElement } from '@udecode/plate-common/react'
 import {
   useTableCellElement,
   useTableCellElementResizable,
   useTableCellElementResizableState,
   useTableCellElementState,
-} from '@udecode/plate-table'
+} from '@udecode/plate-table/react'
 
 import { ResizeHandle } from './resizable'
 
@@ -58,19 +58,19 @@ export const TableCellElement = withRef<
             isHeader && 'pce-text-left [&_>_*]:pce-m-0',
             'before:pce-size-full',
             selected &&
-              'before:pce-z-10 before:pce-bg-slate-100 dark:pce-before:bg-slate-800',
+              'before:pce-z-10 before:pce-bg-slate-100 dark:before:pce-bg-slate-800',
             'before:pce-absolute before:pce-box-border before:pce-select-none before:content-[]',
-            borders &&
-              cn(
-                borders.bottom?.size &&
-                  `before:pce-border-b before:border-b-border`,
-                borders.right?.size &&
-                  `before:pce-border-r before:border-r-border`,
-                borders.left?.size &&
-                  `before:pce-border-l before:border-l-border`,
-                borders.top?.size &&
-                  `before:pce-border-t before:border-t-border`
-              )
+            // borders &&
+            cn(
+              borders.bottom?.size &&
+                `before:pce-border-b before:pce-border-b-border`,
+              borders.right?.size &&
+                `before:pce-border-r before:pce-border-r-border`,
+              borders.left?.size &&
+                `before:pce-border-l before:pce-border-l-border`,
+              borders.top?.size &&
+                `before:pce-border-t before:pce-border-t-border`
+            )
           ),
         className
       )}

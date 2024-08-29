@@ -29,7 +29,7 @@ const ResizableHandle = ({
 } & React.ComponentProps<typeof ResizablePrimitive.PanelResizeHandle>) => (
   <ResizablePrimitive.PanelResizeHandle
     className={cn(
-      'pce-relative pce-flex pce-w-px pce-items-center pce-justify-center bg-border after:pce-absolute after:pce-inset-y-0 after:pce-left-1/2 after:pce-w-1 after:pce--translate-x-1/2 focus-visible:pce-outline-none focus-visible:pce-ring-1 focus-visible:ring-ring focus-visible:pce-ring-offset-1 data-[panel-group-direction=vertical]:pce-h-px data-[panel-group-direction=vertical]:pce-w-full data-[panel-group-direction=vertical]:after:pce-left-0 data-[panel-group-direction=vertical]:after:pce-h-1 data-[panel-group-direction=vertical]:after:pce-w-full data-[panel-group-direction=vertical]:after:pce--translate-y-1/2 data-[panel-group-direction=vertical]:after:pce-translate-x-0 [&[data-panel-group-direction=vertical]>div]:pce-rotate-90',
+      'pce-relative pce-flex pce-w-px pce-items-center pce-justify-center bg-border after:pce-absolute after:pce-inset-y-0 after:pce-left-1/2 after:pce-w-1 after:pce-translate-x-1/2 focus-visible:pce-outline-none focus-visible:pce-ring-1 focus-visible:ring-ring focus-visible:pce-ring-offset-1 data-[panel-group-direction=vertical]:pce-h-px data-[panel-group-direction=vertical]:pce-w-full data-[panel-group-direction=vertical]:after:pce-left-0 data-[panel-group-direction=vertical]:after:pce-h-1 data-[panel-group-direction=vertical]:after:pce-w-full data-[panel-group-direction=vertical]:after:pce-translate-y-1/2 data-[panel-group-direction=vertical]:after:pce-translate-x-0 [&[data-panel-group-direction=vertical]>div]:pce-rotate-90',
       className
     )}
     {...props}

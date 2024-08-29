@@ -3,16 +3,16 @@
 import './styles/globals.css'
 
 import { Editor } from './components/plate-ui/editor'
-import { Plate } from '@udecode/plate-common'
+import { Plate } from '@udecode/plate-common/react'
 
-import { defaultPlugins } from './plugins'
 import type { PlateEditorProps } from './plate'
+import { createEditor } from './editor'
 
 const PlateEditorReadonly = (props: PlateEditorProps) => {
-  const { plugins, className, children } = props
+  const { value, className, children } = props
 
   return (
-    <Plate plugins={plugins ?? defaultPlugins} {...props} readOnly>
+    <Plate {...props} editor={createEditor(value)} readOnly>
       <Editor className={className} readOnly />
       {children}
     </Plate>

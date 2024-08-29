@@ -1,14 +1,5 @@
-import {
-  MARK_BOLD,
-  MARK_CODE,
-  MARK_ITALIC,
-  MARK_STRIKETHROUGH,
-  MARK_UNDERLINE,
-} from '@udecode/plate-basic-marks'
-import { useEditorReadOnly } from '@udecode/plate-common'
-import { MARK_BG_COLOR, MARK_COLOR } from '@udecode/plate-font'
+import { useEditorReadOnly } from '@udecode/plate-common/react'
 import { ListStyleType } from '@udecode/plate-indent-list'
-import { ELEMENT_IMAGE } from '@udecode/plate-media'
 
 import { Icons, iconVariants } from '@/components/icons'
 import { AlignDropdownMenu } from '@/components/plate-ui/align-dropdown-menu'
@@ -29,6 +20,15 @@ import { ModeDropdownMenu } from './mode-dropdown-menu'
 import { ToolbarGroup } from './toolbar'
 import { TurnIntoDropdownMenu } from './turn-into-dropdown-menu'
 import type { PropsWithChildren } from 'react'
+import {
+  BoldPlugin,
+  CodePlugin,
+  ItalicPlugin,
+  StrikethroughPlugin,
+  UnderlinePlugin,
+} from '@udecode/plate-basic-marks/react'
+import { ImagePlugin } from '@udecode/plate-media/react'
+import { FontBackgroundColorPlugin, FontColorPlugin } from '@udecode/plate-font'
 
 export function FixedToolbarButtons(props: PropsWithChildren) {
   const readOnly = useEditorReadOnly()
@@ -49,36 +49,42 @@ export function FixedToolbarButtons(props: PropsWithChildren) {
             </ToolbarGroup>
 
             <ToolbarGroup>
-              <MarkToolbarButton tooltip="Bold (⌘+B)" nodeType={MARK_BOLD}>
+              <MarkToolbarButton tooltip="Bold (⌘+B)" nodeType={BoldPlugin.key}>
                 <Icons.bold />
               </MarkToolbarButton>
-              <MarkToolbarButton tooltip="Italic (⌘+I)" nodeType={MARK_ITALIC}>
+              <MarkToolbarButton
+                tooltip="Italic (⌘+I)"
+                nodeType={ItalicPlugin.key}
+              >
                 <Icons.italic />
               </MarkToolbarButton>
               <MarkToolbarButton
                 tooltip="Underline (⌘+U)"
-                nodeType={MARK_UNDERLINE}
+                nodeType={UnderlinePlugin.key}
               >
                 <Icons.underline />
               </MarkToolbarButton>
 
               <MarkToolbarButton
                 tooltip="Strikethrough (⌘+⇧+M)"
-                nodeType={MARK_STRIKETHROUGH}
+                nodeType={StrikethroughPlugin.key}
               >
                 <Icons.strikethrough />
               </MarkToolbarButton>
-              <MarkToolbarButton tooltip="Code (⌘+E)" nodeType={MARK_CODE}>
+              <MarkToolbarButton tooltip="Code (⌘+E)" nodeType={CodePlugin.key}>
                 <Icons.code />
               </MarkToolbarButton>
             </ToolbarGroup>
 
             <ToolbarGroup>
-              <ColorDropdownMenu nodeType={MARK_COLOR} tooltip="Text Color">
+              <ColorDropdownMenu
+                nodeType={FontColorPlugin.key}
+                tooltip="Text Color"
+              >
                 <Icons.color className={iconVariants({ variant: 'toolbar' })} />
               </ColorDropdownMenu>
               <ColorDropdownMenu
-                nodeType={MARK_BG_COLOR}
+                nodeType={FontBackgroundColorPlugin.key}
                 tooltip="Highlight Color"
               >
                 <Icons.bg className={iconVariants({ variant: 'toolbar' })} />
@@ -100,7 +106,7 @@ export function FixedToolbarButtons(props: PropsWithChildren) {
             <ToolbarGroup>
               <LinkToolbarButton />
 
-              <MediaToolbarButton nodeType={ELEMENT_IMAGE} />
+              <MediaToolbarButton nodeType={ImagePlugin.key} />
 
               <TableDropdownMenu />
 
