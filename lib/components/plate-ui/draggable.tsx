@@ -19,8 +19,8 @@ import { Icons } from '@/components/icons'
 
 import {
   Tooltip,
-  TooltipContent,
-  TooltipPortal,
+  //TooltipContent,
+  //TooltipPortal,
   TooltipTrigger,
 } from './tooltip'
 
@@ -96,9 +96,9 @@ const DragHandle = () => {
           }}
         />
       </TooltipTrigger>
-      <TooltipPortal>
+      {/* <TooltipPortal>
         <TooltipContent>Drag to move</TooltipContent>
-      </TooltipPortal>
+      </TooltipPortal> */}
     </Tooltip>
   )
 }
