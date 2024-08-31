@@ -33,6 +33,7 @@ export const ContemberImageToolBarButton: React.FC<
       },
       fileName: file.name,
       size: file.size,
+      contentType: file.type,
       extension: file.type,
     })
 
