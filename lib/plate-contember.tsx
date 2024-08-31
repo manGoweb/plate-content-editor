@@ -10,14 +10,13 @@ import {
   type SugarableRelativeSingleField,
   useField,
 } from '@contember/interface'
-import {
-  replaceNodeChildren,
-} from '@udecode/plate-common'
+import { replaceNodeChildren } from '@udecode/plate-common'
 import { useEffect } from 'react'
 
 import { isJsonContent, isJsonObject } from './contember/utils'
 import { ContemberImageToolBarButton } from './contember/contember-image-toolbar-button'
 import { useEditorRef } from '@udecode/plate-common/react'
+import type { Value } from '@udecode/plate-common'
 
 export type PlateEditorForContemberProps = {
   field: string | SugarableRelativeSingleField
@@ -29,7 +28,7 @@ const PlateEditorForContember = Component<Props & PlateEditorForContemberProps>(
 
     const contentField = useField(field)
 
-    const handleEditorOnChange = (value: any) => {
+    const handleEditorOnChange = (value: Value) => {
       const contentJson = isJsonObject(value) ? { children: value } : null
 
       if (
@@ -52,7 +51,7 @@ const PlateEditorForContember = Component<Props & PlateEditorForContemberProps>(
             ? contentField?.value?.children
             : undefined
         }
-        onChange={handleEditorOnChange}
+        onChange={(options) => handleEditorOnChange(options.value)}
         shouldNormalizeEditor
         additionalToolbarButtons={
           <>
