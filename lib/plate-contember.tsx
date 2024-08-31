@@ -10,12 +10,14 @@ import {
   type SugarableRelativeSingleField,
   useField,
 } from '@contember/interface'
-import { useEditorRef } from '@udecode/plate-common/react'
+import {
+  replaceNodeChildren,
+} from '@udecode/plate-common'
 import { useEffect } from 'react'
 
 import { isJsonContent, isJsonObject } from './contember/utils'
 import { ContemberImageToolBarButton } from './contember/contember-image-toolbar-button'
-import { replaceNodeChildren } from '@udecode/plate-common'
+import { useEditorRef } from '@udecode/plate-common/react'
 
 export type PlateEditorForContemberProps = {
   field: string | SugarableRelativeSingleField
@@ -45,18 +47,19 @@ const PlateEditorForContember = Component<Props & PlateEditorForContemberProps>(
     return (
       <PlateEditor
         isContember={true}
+        value={
+          isJsonContent(contentField?.value)
+            ? contentField?.value?.children
+            : undefined
+        }
         onChange={handleEditorOnChange}
+        shouldNormalizeEditor
         additionalToolbarButtons={
           <>
             <ContemberImageToolBarButton />
           </>
         }
         {...props}
-        value={
-          isJsonContent(contentField?.value)
-            ? contentField?.value?.children
-            : undefined
-        }
       >
         <PlateContentSync field={field} />
       </PlateEditor>
@@ -84,14 +87,17 @@ const PlateContentSync = ({ field }: PlateContentSyncProps) => {
     if (fieldValue !== fieldAccessor().value) {
       return
     }
-    const currValue = fieldAccessor().value
+    const currValue =
+      isJsonContent(fieldValue) && fieldValue.children.length > 0
+        ? fieldValue.children
+        : editor.api.create.value()
     if (currValue === editor.children) {
       return
     }
-
+    const normalizedValue = currValue
     replaceNodeChildren(editor, {
       at: [],
-      nodes: currValue,
+      nodes: normalizedValue,
     } as any)
   }, [])
 

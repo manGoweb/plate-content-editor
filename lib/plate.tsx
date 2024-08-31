@@ -47,6 +47,7 @@ export type PlateEditorProps = PropsWithChildren<
   className?: string
 } & {
   value?: Value
+  shouldNormalizeEditor?: boolean
 }
 
 export type Props = PlateEditorProps &
@@ -59,6 +60,7 @@ export type Props = PlateEditorProps &
 const PlateEditor = (props: Props) => {
   const {
     value,
+    shouldNormalizeEditor,
     isContember,
     wrapperClassName,
     additionalToolbarButtons,
@@ -71,7 +73,10 @@ const PlateEditor = (props: Props) => {
       <DndProvider backend={HTML5Backend}>
         <TooltipProvider>
           <Wrapper className={wrapperClassName}>
-            <Plate {...props} editor={createEditor(value)}>
+            <Plate
+              {...props}
+              editor={createEditor(value, shouldNormalizeEditor)}
+            >
               <>
                 <FixedToolbar className="pce-no-scrollbar">
                   <FixedToolbarButtons>
