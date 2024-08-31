@@ -45,7 +45,7 @@ import { IndentPlugin } from '@udecode/plate-indent/react'
 import { IndentListPlugin } from '@udecode/plate-indent-list/react'
 import { LineHeightPlugin } from '@udecode/plate-line-height'
 import { CommentsPlugin } from '@udecode/plate-comments/react'
-import { CaptionPlugin } from '@udecode/plate-caption/react'
+//import { CaptionPlugin } from '@udecode/plate-caption/react'
 import { AutoformatPlugin } from '@udecode/plate-autoformat/react'
 import { BlockSelectionPlugin } from '@udecode/plate-selection/react'
 import { DndPlugin } from '@udecode/plate-dnd'
@@ -145,9 +145,9 @@ export const createEditor = (initialValue?: Value) =>
         },
       }),
       CommentsPlugin,
-      CaptionPlugin.configure({
-        options: { plugins: [ImagePlugin, MediaEmbedPlugin] },
-      }),
+      // CaptionPlugin.configure({
+      //   options: { plugins: [ImagePlugin, MediaEmbedPlugin] },
+      // }),
       AutoformatPlugin.configure({
         options: {
           enableUndoOnDelete: true,
