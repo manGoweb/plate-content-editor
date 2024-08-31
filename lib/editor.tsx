@@ -92,8 +92,12 @@ import { withDraggables } from '@/components/plate-ui/with-draggables'
 import type { Value } from '@udecode/plate-common'
 import { Prism } from './components/plate-ui/code-block-combobox'
 
-export const createEditor = (initialValue?: Value, normalizeInitialValue?: boolean) =>
+export const createEditor = (
+  initialValue?: Value,
+  normalizeInitialValue?: boolean
+) =>
   createPlateEditor({
+    shouldNormalizeEditor: normalizeInitialValue,
     plugins: [
       BlockquotePlugin,
       CodeBlockPlugin.configure({

@@ -46,11 +46,11 @@ const PlateEditorForContember = Component<Props & PlateEditorForContemberProps>(
     return (
       <PlateEditor
         isContember={true}
-        value={
-          isJsonContent(contentField?.value)
-            ? contentField?.value?.children
-            : undefined
-        }
+        // value={
+        //   isJsonContent(contentField?.value)
+        //     ? contentField?.value?.children
+        //     : undefined
+        // }
         onChange={(options) => handleEditorOnChange(options.value)}
         shouldNormalizeEditor
         additionalToolbarButtons={
