@@ -6,7 +6,7 @@ import { Editor } from './components/plate-ui/editor'
 import { Plate } from '@udecode/plate-common/react'
 
 import type { PlateEditorProps } from './plate'
-import { createEditor } from './editor'
+import { createEditor } from './plugins'
 
 const PlateEditorReadonly = (props: PlateEditorProps) => {
   const { value, className, children } = props

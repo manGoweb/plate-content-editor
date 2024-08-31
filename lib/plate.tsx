@@ -23,7 +23,7 @@ import {
 } from './contember/contember-context'
 
 import { Editor } from './components/plate-ui/editor'
-import { Plate } from '@udecode/plate-common/react'
+import { Plate, usePlateEditor } from '@udecode/plate-common/react'
 
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
@@ -38,8 +38,9 @@ import { FloatingToolbarButtons } from './components/plate-ui/floating-toolbar-b
 
 import { Wrapper } from './components/wrapper'
 import { cn } from '@udecode/cn'
-import { createEditor } from './editor'
 import type { Value } from '@udecode/plate-common'
+
+import { plugins } from './plugins'
 
 export type PlateEditorProps = PropsWithChildren<
   Omit<ComponentProps<typeof Plate>, 'children' | 'editor'>
@@ -68,15 +69,18 @@ const PlateEditor = (props: Props) => {
     children,
   } = props
 
+  const editor = usePlateEditor({
+    value,
+    shouldNormalizeEditor,
+    ...plugins,
+  })
+
   return (
     <ContemberProvider isContember={isContember}>
       <DndProvider backend={HTML5Backend}>
         <TooltipProvider>
           <Wrapper className={wrapperClassName}>
-            <Plate
-              {...props}
-              editor={createEditor(value, shouldNormalizeEditor)}
-            >
+            <Plate {...props} editor={editor}>
               <>
                 <FixedToolbar className="pce-no-scrollbar">
                   <FixedToolbarButtons>
